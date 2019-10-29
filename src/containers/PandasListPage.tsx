@@ -1,11 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PandasList from '../components/PandasList';
-import axios, { AxiosResponse } from 'axios';
 import { Panda } from '../types/Pandas';
 
-interface Props {}
-
-interface State {
+interface Props {
   pandas: Panda[];
 }
 
@@ -21,16 +19,8 @@ class PandasListPage extends React.Component<Props, State> {
     alert(key);
   };
 
-  componentDidMount() {
-    axios.get('http://localhost:3004/pandas').then((response: AxiosResponse) => {
-      this.setState({
-        pandas: response.data,
-      });
-    });
-  }
-
   render() {
-    const { pandas } = this.state;
+    const { pandas } = this.props;
     return (
       <div style={{ padding: 20 }}>
         <PandasList pandas={pandas} onSelectPanda={this.handleSelectPanda} />
@@ -39,4 +29,10 @@ class PandasListPage extends React.Component<Props, State> {
   }
 }
 
-export default PandasListPage;
+const mapStateToProps = (state: any) => {
+  return {
+    pandas: state.pandas,
+  };
+};
+
+export default connect(mapStateToProps)(PandasListPage);
