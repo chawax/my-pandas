@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PandasList from '../components/PandasList';
+import { State } from '../redux/types';
 import { Panda } from '../types/Pandas';
 
 interface Props {
@@ -8,13 +9,6 @@ interface Props {
 }
 
 class PandasListPage extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      pandas: [],
-    };
-  }
-
   handleSelectPanda = (key: string) => {
     alert(key);
   };
@@ -29,7 +23,7 @@ class PandasListPage extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: State): Props => {
   return {
     pandas: state.pandas,
   };

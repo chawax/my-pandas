@@ -1,8 +1,7 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
 import PandasListPage from './containers/PandasListPage';
-import { Provider } from 'react-redux';
-
 import store from './redux/store';
 
 const App: React.FC = () => {

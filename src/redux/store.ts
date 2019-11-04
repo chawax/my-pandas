@@ -1,11 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, Reducer, Store } from 'redux';
 import pandas from '../pandas';
+import { State } from './types';
 
-const reducer = (state: any) => state;
+const reducer: Reducer = (state: State) => state;
 
-const initialState = {
+const initialState: State = {
   pandas,
 };
-const store = createStore(reducer, initialState);
 
+const store: Store = createStore(reducer, initialState);
 export default store;
