@@ -7,7 +7,7 @@ interface Props {
   pandas: Panda[];
 }
 
-class PandasListPage extends React.Component<Props, State> {
+class PandasListPage extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
     this.state = {
