@@ -17,7 +17,7 @@ class PandasListPage extends React.Component<Props, State> {
     };
   }
 
-  handlePress = (key: string) => {
+  handleSelectPanda = (key: string) => {
     alert(key);
   };
 
@@ -33,7 +33,7 @@ class PandasListPage extends React.Component<Props, State> {
     const { pandas } = this.state;
     return (
       <div style={{ padding: 20 }}>
-        <PandasList pandas={pandas} onPress={this.handlePress} />
+        <PandasList pandas={pandas} onSelectPanda={this.handleSelectPanda} />
       </div>
     );
   }

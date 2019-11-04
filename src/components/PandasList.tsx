@@ -5,11 +5,11 @@ import PandaItem from './PandaItem';
 
 interface Props {
   pandas: Panda[];
-  onPress(key: string): void;
+  onSelectPanda(key: string): void;
 }
 
 const PandasList: React.FC<Props> = (props: Props) => {
-  const { pandas, onPress } = props;
+  const { pandas, onSelectPanda } = props;
   return (
     <ListGroup>
       {pandas.map((panda: Panda) => (
@@ -18,7 +18,7 @@ const PandasList: React.FC<Props> = (props: Props) => {
           name={panda.name}
           interests={panda.interests}
           onPress={() => {
-            onPress(panda.key);
+            onSelectPanda(panda.key);
           }}
         />
       ))}
