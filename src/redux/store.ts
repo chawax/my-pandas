@@ -1,12 +1,14 @@
-import { createStore, Reducer, Store } from 'redux';
-import pandas from '../pandas';
-import { State } from './types';
+import { combineReducers, createStore, Store, applyMiddleware, Middleware } from 'redux';
+import { pandasReducer } from './pandas/reducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const reducer: Reducer = (state: State) => state;
+const rootReducer = combineReducers({
+  pandas: pandasReducer,
+});
 
-const initialState: State = {
-  pandas,
-};
+export type AppState = ReturnType<typeof rootReducer>;
 
-const store: Store = createStore(reducer, initialState);
+const initialState = {};
+const middlewares: Middleware[] = [];
+const store: Store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middlewares)));
 export default store;
