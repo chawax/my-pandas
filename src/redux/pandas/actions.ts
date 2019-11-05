@@ -1,9 +1,21 @@
 import { Panda } from '../../types/Pandas';
-import { PandasActionTypes, SET_PANDAS } from './types';
+import { PandasActionTypes, LOAD_PANDAS_REQUEST, LOAD_PANDAS_SUCCESS, LOAD_PANDAS_FAILURE } from './types';
 
-export function setPandas(pandas: Panda[]): PandasActionTypes {
+export function loadPandasRequest(): PandasActionTypes {
   return {
-    type: SET_PANDAS,
+    type: LOAD_PANDAS_REQUEST,
+  };
+}
+
+export function loadPandasSuccess(pandas: Panda[]): PandasActionTypes {
+  return {
+    type: LOAD_PANDAS_SUCCESS,
     payload: pandas,
+  };
+}
+export function loadPandasFailure(error: Error): PandasActionTypes {
+  return {
+    type: LOAD_PANDAS_FAILURE,
+    payload: error,
   };
 }

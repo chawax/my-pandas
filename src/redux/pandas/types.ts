@@ -2,13 +2,26 @@ import { Panda } from '../../types/Pandas';
 
 export interface PandasState {
   data: Panda[];
+  fetching: boolean;
+  error?: Error;
 }
 
-export const SET_PANDAS = '@app/SET_PANDAS';
+export const LOAD_PANDAS_REQUEST = '@app/LOAD_PANDAS_REQUEST';
+export const LOAD_PANDAS_SUCCESS = '@app/LOAD_PANDAS_SUCCESS';
+export const LOAD_PANDAS_FAILURE = '@app/LOAD_PANDAS_FAILURE';
 
-interface SetPandasAction {
-  type: typeof SET_PANDAS;
+interface LoadPandasRequestAction {
+  type: typeof LOAD_PANDAS_REQUEST;
+}
+
+interface LoadPandasSuccessAction {
+  type: typeof LOAD_PANDAS_SUCCESS;
   payload: Panda[];
 }
 
-export type PandasActionTypes = SetPandasAction;
+interface LoadPandasFailureAction {
+  type: typeof LOAD_PANDAS_FAILURE;
+  payload: Error;
+}
+
+export type PandasActionTypes = LoadPandasRequestAction | LoadPandasSuccessAction | LoadPandasFailureAction;

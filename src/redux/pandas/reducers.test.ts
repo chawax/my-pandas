@@ -1,10 +1,12 @@
 import pandas from '../../pandas';
-import { setPandas } from './actions';
+import { loadPandasSuccess } from './actions';
 import { pandasReducer } from './reducers';
 
-test('SET_PANDAS', () => {
-  const action = setPandas(pandas);
+test('LOAD_PANDAS_SUCCESS', () => {
+  const action = loadPandasSuccess(pandas);
   expect(pandasReducer(undefined, action)).toEqual({
     data: pandas,
+    fetching: false,
+    error: undefined,
   });
 });

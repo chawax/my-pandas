@@ -1,10 +1,10 @@
 import pandas from '../../pandas';
-import { setPandas } from './actions';
+import { loadPandasSuccess } from './actions';
 
-test('setPandas', () => {
-  const action = setPandas(pandas);
+test('loadPandasSuccess', () => {
+  const action = loadPandasSuccess(pandas);
   expect(action).toEqual({
-    type: '@app/SET_PANDAS',
+    type: '@app/LOAD_PANDAS_SUCCESS',
     payload: pandas,
   });
 });

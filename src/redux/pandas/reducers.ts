@@ -1,12 +1,14 @@
-import { PandasState, PandasActionTypes, SET_PANDAS } from './types';
+import { PandasState, PandasActionTypes, LOAD_PANDAS_SUCCESS } from './types';
 
 const initialState: PandasState = {
   data: [],
+  fetching: false,
+  error: undefined,
 };
 
 export function pandasReducer(state = initialState, action: PandasActionTypes): PandasState {
   switch (action.type) {
-    case SET_PANDAS:
+    case LOAD_PANDAS_SUCCESS:
       return {
         ...state,
         data: action.payload,

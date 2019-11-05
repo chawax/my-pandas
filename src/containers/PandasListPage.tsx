@@ -4,7 +4,7 @@ import { Spinner } from 'reactstrap';
 import { Dispatch } from 'redux';
 import PandasList from '../components/PandasList';
 import pandas from '../pandas';
-import { setPandas } from '../redux/pandas/actions';
+import { loadPandasSuccess } from '../redux/pandas/actions';
 import { getPandas } from '../redux/pandas/selectors';
 import { AppState } from '../redux/store';
 import { Panda } from '../types/Pandas';
@@ -46,7 +46,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   return {
-    loadPandas: () => dispatch(setPandas(pandas)),
+    loadPandas: () => dispatch(loadPandasSuccess(pandas)),
   };
 };
 
