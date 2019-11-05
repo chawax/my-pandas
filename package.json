@@ -50,8 +50,10 @@
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "@types/reactstrap": "^8.0.6",
+    "@types/sinon": "^7.5.0",
     "babel-loader": "^8.0.6",
     "json-server": "^0.15.1",
+    "sinon": "^7.5.0",
     "webpack": "4.41.0"
   }
 }
