@@ -1,4 +1,4 @@
-import { PandasState, PandasActionTypes, LOAD_PANDAS_SUCCESS } from './types';
+import { PandasState, PandasActionTypes, LOAD_PANDAS_SUCCESS, LOAD_PANDAS_REQUEST, LOAD_PANDAS_FAILURE } from './types';
 
 const initialState: PandasState = {
   data: [],
@@ -8,10 +8,24 @@ const initialState: PandasState = {
 
 export function pandasReducer(state = initialState, action: PandasActionTypes): PandasState {
   switch (action.type) {
+    case LOAD_PANDAS_REQUEST:
+      return {
+        ...state,
+        data: [],
+        fetching: true,
+      };
     case LOAD_PANDAS_SUCCESS:
       return {
         ...state,
         data: action.payload,
+        fetching: false,
+      };
+    case LOAD_PANDAS_FAILURE:
+      return {
+        ...state,
+        data: [],
+        error: action.payload,
+        fetching: false,
       };
     default:
       return state;
