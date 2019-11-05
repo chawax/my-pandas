@@ -12,12 +12,14 @@ export function pandasReducer(state = initialState, action: PandasActionTypes): 
       return {
         ...state,
         data: [],
+        error: undefined,
         fetching: true,
       };
     case LOAD_PANDAS_SUCCESS:
       return {
         ...state,
         data: action.payload,
+        error: undefined,
         fetching: false,
       };
     case LOAD_PANDAS_FAILURE:
