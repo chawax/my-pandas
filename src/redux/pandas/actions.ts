@@ -4,6 +4,7 @@ import { PandasActionTypes, LOAD_PANDAS_REQUEST, LOAD_PANDAS_SUCCESS, LOAD_PANDA
 export function loadPandasRequest(): PandasActionTypes {
   return {
     type: LOAD_PANDAS_REQUEST,
+    payload: undefined,
   };
 }
 
@@ -13,6 +14,7 @@ export function loadPandasSuccess(pandas: Panda[]): PandasActionTypes {
     payload: pandas,
   };
 }
+
 export function loadPandasFailure(error: Error): PandasActionTypes {
   return {
     type: LOAD_PANDAS_FAILURE,

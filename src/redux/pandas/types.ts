@@ -12,6 +12,7 @@ export const LOAD_PANDAS_FAILURE = '@app/LOAD_PANDAS_FAILURE';
 
 interface LoadPandasRequestAction {
   type: typeof LOAD_PANDAS_REQUEST;
+  payload: undefined;
 }
 
 interface LoadPandasSuccessAction {
