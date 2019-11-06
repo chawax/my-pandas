@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Spinner } from 'reactstrap';
+import { Spinner, Alert, Button } from 'reactstrap';
 import { Dispatch } from 'redux';
 import PandasList from '../components/PandasList';
-import pandas from '../pandas';
-import { loadPandasSuccess } from '../redux/pandas/actions';
-import { getPandas } from '../redux/pandas/selectors';
+import { loadPandasRequest } from '../redux/pandas/actions';
+import { getPandas, isFetching, getError } from '../redux/pandas/selectors';
 import { AppState } from '../redux/store';
 import { Panda } from '../types/Pandas';
 
 interface PropsFromState {
   pandas: Panda[];
+  fetching: boolean;
+  error?: Error;
 }
 
 interface PropsFromDispatch {
@@ -28,12 +29,32 @@ class PandasListPage extends React.Component<Props> {
     this.props.loadPandas();
   }
 
-  render() {
-    const { pandas } = this.props;
+  handleRetry = () => {
+    this.props.loadPandas();
+  };
+
+  renderError = () => {
+    const { error } = this.props;
     return (
-      <div style={{ padding: 20 }}>
-        {pandas ? <PandasList pandas={pandas} onSelectPanda={this.handleSelectPanda} /> : <Spinner color="primary" />}
+      <div>
+        <Alert color="danger">{error!.message}</Alert>
+        <Button color="secondary" onClick={this.handleRetry}>
+          Réessayer
+        </Button>
       </div>
+    );
+  };
+
+  render() {
+    const { pandas, fetching, error } = this.props;
+    return (
+      <>
+        <div style={{ padding: 20 }}>
+          {fetching && <Spinner color="primary" />}
+          {error && this.renderError()}
+          {pandas && <PandasList pandas={pandas} onSelectPanda={this.handleSelectPanda} />}
+        </div>
+      </>
     );
   }
 }
@@ -41,12 +62,14 @@ class PandasListPage extends React.Component<Props> {
 const mapStateToProps = (state: AppState): PropsFromState => {
   return {
     pandas: getPandas(state),
+    fetching: isFetching(state),
+    error: getError(state),
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   return {
-    loadPandas: () => dispatch(loadPandasSuccess(pandas)),
+    loadPandas: () => dispatch(loadPandasRequest()),
   };
 };
 
