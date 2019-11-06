@@ -19,7 +19,7 @@ interface PropsFromDispatch {
   loadPandas(): void;
 }
 
-type Props = RouteComponentProps<{}> & PropsFromState & PropsFromDispatch;
+type Props = RouteComponentProps & PropsFromState & PropsFromDispatch;
 
 class PandasListPage extends React.Component<Props> {
   handleSelectPanda = (key: string) => {
