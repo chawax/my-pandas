@@ -12,3 +12,12 @@ export const isFetching = (state: AppState): boolean => {
 export const getError = (state: AppState): Error | undefined => {
   return state.pandas.error;
 };
+
+export const findPanda = (state: AppState, key: string): Panda | undefined => {
+  return (
+    state.pandas.data &&
+    state.pandas.data.find((item: Panda) => {
+      return item.key === key;
+    })
+  );
+};
