@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Spinner, Alert, Button } from 'reactstrap';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { Alert, Button, Spinner } from 'reactstrap';
 import { Dispatch } from 'redux';
 import PandasList from '../components/PandasList';
 import { loadPandasRequest } from '../redux/pandas/actions';
-import { getPandas, isFetching, getError } from '../redux/pandas/selectors';
+import { getError, getPandas, isFetching } from '../redux/pandas/selectors';
 import { AppState } from '../redux/store';
 import { Panda } from '../types/Pandas';
 
@@ -18,11 +19,11 @@ interface PropsFromDispatch {
   loadPandas(): void;
 }
 
-type Props = PropsFromState & PropsFromDispatch;
+type Props = RouteComponentProps<{}> & PropsFromState & PropsFromDispatch;
 
 class PandasListPage extends React.Component<Props> {
   handleSelectPanda = (key: string) => {
-    alert(key);
+    this.props.history.push('/pandas/' + key);
   };
 
   componentDidMount() {
@@ -76,4 +77,4 @@ const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PandasListPage);
+)(withRouter(PandasListPage));
