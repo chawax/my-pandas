@@ -1,8 +1,13 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Badge, Button, Jumbotron } from 'reactstrap';
+import { Panda } from '../types/Pandas';
 
-const PandaDetails = props => {
+interface Props {
+  panda: Panda;
+  onClose(): void;
+}
+
+const PandaDetails = (props: Props) => {
   return (
     <Jumbotron>
       <h1>{props.panda.name}</h1>
@@ -22,16 +27,6 @@ const PandaDetails = props => {
       </div>
     </Jumbotron>
   );
-};
-
-PandaDetails.propTypes = {
-  panda: PropTypes.shape({
-    key: PropTypes.string,
-    name: PropTypes.string,
-    image: PropTypes.string,
-    interests: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
-  onClose: PropTypes.func.isRequired,
 };
 
 export default PandaDetails;
