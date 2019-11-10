@@ -1,9 +1,9 @@
 import React from 'react';
 import { WrappedFieldInputProps, WrappedFieldMetaProps } from 'redux-form';
-import ReduxFormInputText from './ReduxFormInputText';
+import ReduxFormInput from './ReduxFormInput';
 
 export default {
-  title: 'ReduxFormInputText',
+  title: 'ReduxFormInput',
 };
 
 const defaultMeta: WrappedFieldMetaProps = {
@@ -43,7 +43,7 @@ export const initial = () => {
   };
   return (
     <div style={{ padding: 20 }}>
-      <ReduxFormInputText
+      <ReduxFormInput
         input={input}
         name="name"
         label="Nom"
@@ -67,7 +67,7 @@ export const valid = () => {
   };
   return (
     <div style={{ padding: 20 }}>
-      <ReduxFormInputText
+      <ReduxFormInput
         input={input}
         name="name"
         label="Nom"
@@ -91,7 +91,7 @@ export const invalid = () => {
   };
   return (
     <div style={{ padding: 20 }}>
-      <ReduxFormInputText
+      <ReduxFormInput
         input={input}
         name="name"
         label="Nom"
