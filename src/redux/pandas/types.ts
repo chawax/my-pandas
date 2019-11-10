@@ -13,6 +13,7 @@ export const CREATE_PANDA_REQUEST = '@app/CREATE_PANDA_REQUEST';
 export const CREATE_PANDA_SUCCESS = '@app/CREATE_PANDA_SUCCESS';
 export const CREATE_PANDA_FAILURE = '@app/CREATE_PANDA_FAILURE';
 
+// We export actions that will be used to trigger a saga
 interface LoadPandasRequestAction {
   type: typeof LOAD_PANDAS_REQUEST;
   payload: undefined;
@@ -28,7 +29,8 @@ interface LoadPandasFailureAction {
   payload: Error;
 }
 
-interface CreatePandaRequestAction {
+// We export actions that will be used to trigger a saga
+export interface CreatePandaRequestAction {
   type: typeof CREATE_PANDA_REQUEST;
   payload: Panda;
 }
