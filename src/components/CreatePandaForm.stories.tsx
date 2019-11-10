@@ -13,14 +13,14 @@ const buildFormDecoratorStore = () => {
   const appReducer = combineReducers({
     form: formReducer,
   });
-  const rootReducer = (state, action) => appReducer(state, action);
+  const rootReducer = (state: any, action: any) => appReducer(state, action);
   const middlewares: Middleware[] = [];
   const store = createStore(rootReducer, {}, compose(applyMiddleware(...middlewares)));
   return store;
 };
 
-const FormDecorator = props => {
-  const formDecoratorStore = buildFormDecoratorStore(props.initialState, props.reducers);
+const FormDecorator = (props: { children: JSX.Element[] | JSX.Element }) => {
+  const formDecoratorStore = buildFormDecoratorStore();
   return <Provider store={formDecoratorStore}>{props.children}</Provider>;
 };
 
