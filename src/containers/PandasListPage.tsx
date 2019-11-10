@@ -26,6 +26,10 @@ class PandasListPage extends React.Component<Props> {
     this.props.history.push('/pandas/' + key);
   };
 
+  handleNewPanda = () => {
+    this.props.history.push('/createPanda');
+  };
+
   componentDidMount() {
     this.props.loadPandas();
   }
@@ -53,7 +57,14 @@ class PandasListPage extends React.Component<Props> {
         <div style={{ padding: 20 }}>
           {fetching && <Spinner color="primary" />}
           {error && this.renderError()}
-          {pandas && <PandasList pandas={pandas} onSelectPanda={this.handleSelectPanda} />}
+          {pandas && (
+            <>
+              <PandasList pandas={pandas} onSelectPanda={this.handleSelectPanda} />
+              <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewPanda}>
+                Ajouter un panda
+              </Button>
+            </>
+          )}
         </div>
       </>
     );
