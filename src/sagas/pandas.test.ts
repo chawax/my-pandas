@@ -1,9 +1,18 @@
 import { Action } from 'redux';
 import { runSaga } from 'redux-saga';
-import sinon, { SinonSandbox } from 'sinon';
-import { loadPandasFailure, loadPandasRequest, loadPandasSuccess } from '../redux/pandas/actions';
+import sinon, { SinonSandbox, SinonStub } from 'sinon';
+import {
+  loadPandasFailure,
+  loadPandasRequest,
+  loadPandasSuccess,
+  createPandaRequest,
+  createPandaSuccess,
+  createPandaFailure,
+} from '../redux/pandas/actions';
 import api from '../services/api';
-import { loadPandas } from './pandas';
+import { loadPandas, createPanda } from './pandas';
+import { Panda } from '../types/Pandas';
+import { push } from 'connected-react-router';
 
 describe('loadPandas', () => {
   const pandas = [
@@ -28,7 +37,7 @@ describe('loadPandas', () => {
   it('api call was successful', async () => {
     // Mock de l'API
 
-    const apiStub = sandbox.stub(api, 'loadPandas').resolves(pandas);
+    const apiStub: SinonStub = sandbox.stub(api, 'loadPandas').resolves(pandas);
 
     // Configuration et exécution de la saga
 
@@ -54,7 +63,7 @@ describe('loadPandas', () => {
     // Mock de l'API
 
     const error = new Error('Error for test');
-    const apiStub = sandbox.stub(api, 'loadPandas').rejects(error);
+    const apiStub: SinonStub = sandbox.stub(api, 'loadPandas').rejects(error);
 
     // Configuration et exécution de la saga
 
@@ -70,6 +79,76 @@ describe('loadPandas', () => {
     // contrôle des actions dispatchées
 
     expect(dispatched).toEqual([loadPandasFailure(error)]);
+
+    // Contrôle des appels d'API
+
+    expect(apiStub.calledOnce).toBeTruthy();
+  });
+});
+
+describe('createPanda', () => {
+  const newPanda: Panda = {
+    name: 'New panda',
+    image: 'https://media.giphy.com/media/EatwJZRUIv41G/giphy-downsized.gif',
+    interests: ['yoga', 'bambou'],
+  };
+
+  let sandbox: SinonSandbox;
+  beforeEach(() => (sandbox = sinon.createSandbox()));
+  afterEach(() => sandbox.restore());
+
+  it('api call was successful', async () => {
+    // Mock de l'API
+
+    const createdPanda: Panda = {
+      ...newPanda,
+      key: 'key',
+    };
+    const apiStub = sandbox.stub(api, 'createPanda').resolves(createdPanda);
+
+    // Configuration et exécution de la saga
+
+    const state = {};
+    const action = createPandaRequest(newPanda);
+    const dispatched: Action[] = [];
+    const sagaConfig = {
+      dispatch: (a: Action) => dispatched.push(a),
+      getState: () => state,
+    };
+    await runSaga(sagaConfig, createPanda, api, action);
+
+    // Contrôle des actions dispatchées
+
+    expect(dispatched).toEqual([
+      createPandaSuccess(createdPanda), //
+      push('/'),
+    ]);
+
+    // Contrôle des appels d'API
+
+    expect(apiStub.calledOnce).toBeTruthy();
+  });
+
+  it('api call failed', async () => {
+    // Mock de l'API
+
+    const error = new Error('Error for test');
+    const apiStub: SinonStub = sandbox.stub(api, 'createPanda').rejects(error);
+
+    // Configuration et exécution de la saga
+
+    const state = {};
+    const action = createPandaRequest(newPanda);
+    const dispatched: Action[] = [];
+    const sagaConfig = {
+      dispatch: (a: Action) => dispatched.push(a),
+      getState: () => state,
+    };
+    await runSaga(sagaConfig, createPanda, api, action);
+
+    // contrôle des actions dispatchées
+
+    expect(dispatched).toEqual([createPandaFailure(error)]);
 
     // Contrôle des appels d'API
 
