@@ -7,7 +7,7 @@ interface OwnProps {
   onCancel(): void;
 }
 
-interface FormData {
+export interface FormData {
   name: string;
   interests: string;
   image: string;
