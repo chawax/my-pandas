@@ -1,11 +1,13 @@
+import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import CreatePandaPage from './containers/CreatePandaPage';
 import PandaDetailsPage from './containers/PandaDetailsPage';
 import PandasListPage from './containers/PandasListPage';
 import store from './redux/store';
+import history from './services/history';
 
 const App: React.FC = () => {
   return (
@@ -13,11 +15,11 @@ const App: React.FC = () => {
       <h2 className="text-danger" style={{ padding: 10 }}>
         My pandas
       </h2>
-      <Router>
+      <ConnectedRouter history={history}>
         <Route path="/" exact component={PandasListPage} />
         <Route path="/pandas/:id" component={PandaDetailsPage} />
         <Route path="/createPanda" component={CreatePandaPage} />
-      </Router>
+      </ConnectedRouter>
     </Provider>
   );
 };
