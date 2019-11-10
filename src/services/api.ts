@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { Panda } from '../types/Pandas';
 
 const loadPandas = (): Promise<Panda[]> => {
@@ -6,10 +6,20 @@ const loadPandas = (): Promise<Panda[]> => {
     axios
       .get('http://localhost:3004/pandas')
       .then((response: AxiosResponse) => resolve(response.data))
-      .catch(error => reject(error));
+      .catch((error: AxiosError) => reject(error));
+  });
+};
+
+const createPanda = (panda: Panda): Promise<Panda> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post('http://localhost:3004/pandas', panda)
+      .then((response: AxiosResponse) => resolve(response.data))
+      .catch((error: AxiosError) => reject(error));
   });
 };
 
 export default {
   loadPandas,
+  createPanda,
 };
