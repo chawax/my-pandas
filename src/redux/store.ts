@@ -5,14 +5,17 @@ import rootSaga from '../sagas';
 import { pandasReducer } from './pandas/reducers';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { reducer as formReducer } from 'redux-form';
 
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['form'],
 };
 
 const rootReducer = combineReducers({
   pandas: pandasReducer,
+  form: formReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
