@@ -1,13 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { Dispatch } from 'redux';
 import CreatePandaForm, { FormData as CreatePandaFormData } from '../components/CreatePandaForm';
+import { createPandaRequest } from '../redux/pandas/actions';
+import { AppState } from '../redux/store';
+import { Panda } from '../types/Pandas';
 
-class CreatePandaPage extends React.Component {
+interface PropsFromState {}
+
+interface PropsFromDispatch {
+  createPanda(panda: Panda): void;
+}
+
+type Props = RouteComponentProps & PropsFromState & PropsFromDispatch;
+
+class CreatePandaPage extends React.Component<Props> {
   handleCancel = () => {
-    console.log('cancel');
+    this.props.history.replace('/');
   };
 
   handleSubmit = (values: CreatePandaFormData) => {
-    console.log('submit : ', values);
+    const panda = {
+      name: values.name,
+      interests: values.interests.split(','),
+      image: values.image,
+    };
+    this.props.createPanda(panda);
   };
 
   render() {
@@ -21,4 +40,17 @@ class CreatePandaPage extends React.Component {
   }
 }
 
-export default CreatePandaPage;
+const mapStateToProps = (state: AppState): PropsFromState => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
+  return {
+    createPanda: (panda: Panda) => dispatch(createPandaRequest(panda)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withRouter(CreatePandaPage));
