@@ -18,7 +18,7 @@ const PandasList: React.FC<Props> = (props: Props) => {
           name={panda.name}
           interests={panda.interests}
           onPress={() => {
-            onSelectPanda(panda.key);
+            onSelectPanda(panda.key!);
           }}
         />
       ))}
