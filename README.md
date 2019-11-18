@@ -1,44 +1,104 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My Pandas
 
-## Available Scripts
+Application de démo React JS.
 
-In the project directory, you can run:
+Cette application est constituée d'une liste de pandas, d'un écran de détail et d'un formulaire de création.
 
-### `yarn start`
+Elle permet de démontrer :
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Les bases d'un projet React
+- L'utilisation de Typescript dans un projet React
+- La gestion de l'état avec Redux et Redux Persist
+- La gestion des effets de bord avec Redux Saga
+- La gestion des formulaires avec Redux Form
+- La gestion de la navigation avec React Router DOM
+- L'utilisation de Storybook pour mettre au point des composants
+- L'écriture de tests unitaires
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Ce projet a été démarré avec [Create React App](https://github.com/facebook/create-react-app).
 
-### `yarn test`
+Principaux outils et librairies :
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React JS](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/) - Librairie de typage
+- [React Scripts](https://www.npmjs.com/package/react-scripts) - Ensemble de scripts NPM pour les opérations sur le projet
+- [Redux](https://redux.js.org/) - Gestion de l'état de l'application
+- [Redux Saga](https://github.com/redux-saga/redux-saga) - Gestion des effets de bord
+- [Redux Form](https://redux-form.com/) - Gestion des formulaires
+- [Redux Persist](https://github.com/rt2zz/redux-persist) - Persistence de l'état de l'application
+- [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - Gestion du routage dans l'application
+- [Reactstrap](https://material-ui.com/) - Implémentation React de la librairie de composants Bootstrap
+- [Axios](https://github.com/axios/axios) - Client HTTP
+- [Storybook](https://storybook.js.org/) - Outil de mise au point des composants
 
-### `yarn build`
+Pour les versions des différents outils et librairies consulter le fichier `package.json`.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Comment installer l'application
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Node JS et NPM doivent être installés sur la machine de développement.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Cloner le repository.
 
-### `yarn eject`
+- Exécuter la commande suivante :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Comment démarrer le serveur de mock
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Le projet contient un serveur de mock très simple s'appuyant sur la librairie [`json-server`](https://github.com/typicode/json-server). Ce serveur fournit une liste de pandas et gère les opérations de recherche, de création, de mise à jour et de suppression.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Pour démarrer ce serveur de mock :
 
-## Learn More
+```
+npm run json-server
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Comment démarrer l'application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pour exécuter l'application en mode développement :
+
+```
+npm start
+```
+
+L'application est alors accessible sur l'adresse `http://localhost:3000`.
+
+## Comment lancer Storybook
+
+Storybook permet de tester et mettre au point les composants visuels hors de l'application.
+
+Pour lancer Storybook :
+
+```
+npm run storybook
+```
+
+Cette commande lance Storybook en recherchant les stories définies dans des fichiers portant l'extension `.stories.tsx`.
+
+## Comment lancer les tests unitaires
+
+Pour lancer les tests unitaires :
+
+```
+npm test
+```
+
+Cette commande lance les tests unitaires en mode `watch`. Dans ce cas seuls les tests unitaires concernant des fichiers modifiés sont réexécutés. L'utilisateur dispose également de raccourcis pour relancer l'ensemble des tests, filtrer les tests à exécuter, etc...
+
+Pour lancer les tests unitaires en désactivant le mode `watch` :
+
+```
+npm test -- --watchAll=false
+```
+
+> Attention : le mode watch de Jest ne fonctionne pas correctement si on le lance depuis Git Bash sous Windows. Pour utiliser le mode watch sous Windows il faut lancer les tests depuis l'invite de commandes standard de Windows.
+
+## Contrôle des vulnérabilités des dépendances
+
+La commande `npm audit` permet de contrôler les dépendances de l'application et fournit un rapport listant les vulnérabilités des librairies référencées par le projet.
+
+```
+npm audit
+```
