@@ -1,4 +1,4 @@
-import { Formik, FormikErrors, FormikProps, FormikConfig } from 'formik';
+import { Formik, FormikErrors } from 'formik';
 import React from 'react';
 import { Button } from 'reactstrap';
 import FormikInput from './FormikInput';
@@ -39,14 +39,15 @@ const CreatePandaForm = (props: Props) => {
     <Formik initialValues={initialValues} onSubmit={props.onSubmit} validate={validate}>
       {props => (
         <form noValidate onSubmit={props.handleSubmit}>
-          <FormikInput name="name" label="Nom" type="text" placeholder="Saisissez le nom du panda" />
+          <FormikInput name="name" label="Nom" type="text" placeholder="Saisissez le nom du panda" required />
           <FormikInput
             name="interests"
             label="Centres d'intérêt"
             type="text"
             placeholder="Saisissez les centres d'intérêts, séparés par des virgules"
+            required
           />
-          <FormikInput name="image" label="Image" type="text" placeholder="Saisissez l'URL de l'image" />
+          <FormikInput name="image" label="Image" type="text" placeholder="Saisissez l'URL de l'image" required />
           <Button color="primary" style={{ marginRight: 10 }}>
             Valider
           </Button>
