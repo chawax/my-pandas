@@ -5,6 +5,7 @@ import { FormGroup, Input, Label } from 'reactstrap';
 interface OwnProps {
   label: string;
   placeholder: string;
+  required: boolean;
 }
 
 type Props = FieldConfig & OwnProps;
