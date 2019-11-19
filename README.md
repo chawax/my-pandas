@@ -10,7 +10,7 @@ Elle permet de démontrer :
 - L'utilisation de Typescript dans un projet React
 - La gestion de l'état avec Redux et Redux Persist
 - La gestion des effets de bord avec Redux Saga
-- La gestion des formulaires avec Redux Form
+- La gestion des formulaires avec Redux Form et avec Formik
 - La gestion de la navigation avec React Router DOM
 - L'utilisation de Storybook pour mettre au point des composants
 - L'écriture de tests unitaires
@@ -25,6 +25,7 @@ Principaux outils et librairies :
 - [Redux](https://redux.js.org/) - Gestion de l'état de l'application
 - [Redux Saga](https://github.com/redux-saga/redux-saga) - Gestion des effets de bord
 - [Redux Form](https://redux-form.com/) - Gestion des formulaires
+- [Formik](https://jaredpalmer.com/formik) - Gestion des formulaires (librairie alternative)
 - [Redux Persist](https://github.com/rt2zz/redux-persist) - Persistence de l'état de l'application
 - [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - Gestion du routage dans l'application
 - [Reactstrap](https://material-ui.com/) - Implémentation React de la librairie de composants Bootstrap
