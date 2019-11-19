@@ -1,4 +1,4 @@
-import { Formik, FormikErrors, FormikProps, FormikConfig } from 'formik';
+import { Formik, FormikErrors } from 'formik';
 import React from 'react';
 import { Button } from 'reactstrap';
 import FormikInput from './FormikInput';
