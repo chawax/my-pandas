@@ -26,11 +26,11 @@ class PandasListPage extends React.Component<Props> {
     this.props.history.push('/pandas/' + key);
   };
 
-  handleNewPanda = () => {
-    this.props.history.push('/createPanda');
+  handleNewPandaWithReduxForm = () => {
+    this.props.history.push('/createPandaWithReduxForm');
   };
 
-  handleNewFormikPanda = () => {
+  handleNewPandaWithFormik = () => {
     this.props.history.push('/createPandaWithFormik');
   };
 
@@ -64,11 +64,15 @@ class PandasListPage extends React.Component<Props> {
           {pandas && (
             <>
               <PandasList pandas={pandas} onSelectPanda={this.handleSelectPanda} />
-              <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewPanda}>
-                Ajouter un panda
+              <Button
+                color="primary"
+                style={{ marginTop: 10, marginRight: 10 }}
+                onClick={this.handleNewPandaWithReduxForm}
+              >
+                Ajouter un panda (avec Redux Form)
               </Button>
-              <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewFormikPanda}>
-                Ajouter un panda avec Formik
+              <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewPandaWithFormik}>
+                Ajouter un panda (avec Formik)
               </Button>
             </>
           )}
