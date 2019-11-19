@@ -1,4 +1,4 @@
-import { Formik, FormikErrors, FormikProps } from 'formik';
+import { Formik, FormikErrors, FormikProps, FormikConfig } from 'formik';
 import React from 'react';
 import { Button } from 'reactstrap';
 import FormikInput from './FormikInput';
@@ -9,12 +9,10 @@ export interface FormValues {
   image: string;
 }
 
-interface OtherProps {
+interface Props {
   onCancel(): void;
   onSubmit(values: any): void;
 }
-
-type Props = OtherProps & FormikProps<FormValues>;
 
 const validate = (values: FormValues) => {
   const errors: FormikErrors<FormValues> = {};
@@ -31,7 +29,7 @@ const validate = (values: FormValues) => {
 };
 
 const CreatePandaForm = (props: Props) => {
-  const initialValues = {
+  const initialValues: FormValues = {
     name: '',
     interests: '',
     image: '',
