@@ -15,7 +15,7 @@ interface PropsFromDispatch {
 
 type Props = RouteComponentProps & PropsFromState & PropsFromDispatch;
 
-class CreatePandaPage extends React.Component<Props> {
+class CreatePandaWithReduxFormPage extends React.Component<Props> {
   handleCancel = () => {
     this.props.history.replace('/');
   };
@@ -50,7 +50,4 @@ const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withRouter(CreatePandaPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CreatePandaWithReduxFormPage));

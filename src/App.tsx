@@ -3,7 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 import './App.css';
-import CreatePandaPage from './containers/CreatePandaPage';
+import CreatePandaWithFormikPage from './containers/CreatePandaWithFormikPage';
+import CreatePandaWithReduxFormPage from './containers/CreatePandaWithReduxFormPage';
 import PandaDetailsPage from './containers/PandaDetailsPage';
 import PandasListPage from './containers/PandasListPage';
 import store from './redux/store';
@@ -18,7 +19,8 @@ const App: React.FC = () => {
       <ConnectedRouter history={history}>
         <Route path="/" exact component={PandasListPage} />
         <Route path="/pandas/:id" component={PandaDetailsPage} />
-        <Route path="/createPanda" component={CreatePandaPage} />
+        <Route path="/createPandaWithReduxForm" component={CreatePandaWithReduxFormPage} />
+        <Route path="/createPandaWithFormik" component={CreatePandaWithFormikPage} />
       </ConnectedRouter>
     </Provider>
   );
