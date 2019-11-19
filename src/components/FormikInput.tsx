@@ -11,19 +11,16 @@ type Props = FieldConfig & OwnProps;
 
 const FormikInput = (props: Props) => {
   const [field, meta] = useField(props.name);
-  console.log(field);
-  console.log(meta);
   const { label } = props;
-
   let className = '';
   if (meta.touched) {
     className = meta.error ? 'is-invalid' : 'is-valid';
   }
-
   return (
     <FormGroup>
       <Label for={field.name}>{label}</Label>
-      //@ts-ignore
+      {/* 
+       // @ts-ignore */}
       <Input {...field} {...props} className={className} />
       <div className="invalid-feedback">{meta.error}</div>
     </FormGroup>

@@ -33,7 +33,6 @@ class CreatePandaFormikPage extends React.Component<Props> {
     return (
       <>
         <div style={{ padding: 20 }}>
-          //@ts-ignore
           <CreatePandaForm onSubmit={this.handleSubmit} onCancel={this.handleCancel} />
         </div>
       </>
