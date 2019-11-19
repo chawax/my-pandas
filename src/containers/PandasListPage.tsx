@@ -30,6 +30,10 @@ class PandasListPage extends React.Component<Props> {
     this.props.history.push('/createPanda');
   };
 
+  handleNewFormikPanda = () => {
+    this.props.history.push('/createPandaWithFormik');
+  };
+
   componentDidMount() {
     this.props.loadPandas();
   }
@@ -63,6 +67,9 @@ class PandasListPage extends React.Component<Props> {
               <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewPanda}>
                 Ajouter un panda
               </Button>
+              <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewFormikPanda}>
+                Ajouter un panda avec Formik
+              </Button>
             </>
           )}
         </div>
@@ -85,7 +92,4 @@ const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withRouter(PandasListPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PandasListPage));
