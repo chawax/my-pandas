@@ -34,6 +34,10 @@ class PandasListPage extends React.Component<Props> {
     this.props.history.push('/hoc/createPandaWithFormik');
   };
 
+  handleHome = () => {
+    this.props.history.replace('/');
+  };
+
   componentDidMount() {
     this.props.loadPandas();
   }
@@ -71,8 +75,15 @@ class PandasListPage extends React.Component<Props> {
               >
                 Ajouter un panda (avec Redux Form)
               </Button>
-              <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewPandaWithFormik}>
+              <Button
+                color="primary"
+                style={{ marginTop: 10, marginRight: 10 }}
+                onClick={this.handleNewPandaWithFormik}
+              >
                 Ajouter un panda (avec Formik)
+              </Button>
+              <Button color="secondary" style={{ marginTop: 10 }} onClick={this.handleHome}>
+                Accueil
               </Button>
             </>
           )}

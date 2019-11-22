@@ -27,6 +27,10 @@ const PandasListPage = () => {
     history.push('/hooks/createPandaWithFormik');
   };
 
+  const handleHome = () => {
+    history.replace('/');
+  };
+
   const handleRetry = () => {
     dispatch(loadPandasRequest());
   };
@@ -50,8 +54,11 @@ const PandasListPage = () => {
         {pandas && (
           <>
             <PandasList pandas={pandas} onSelectPanda={handleSelectPanda} />
-            <Button color="primary" style={{ marginTop: 10 }} onClick={handleNewPandaWithFormik}>
+            <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithFormik}>
               Ajouter un panda (avec Formik)
+            </Button>
+            <Button color="secondary" style={{ marginTop: 10 }} onClick={handleHome}>
+              Accueil
             </Button>
           </>
         )}
