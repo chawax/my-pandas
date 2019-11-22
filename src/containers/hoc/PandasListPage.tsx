@@ -23,15 +23,15 @@ type Props = RouteComponentProps & PropsFromState & PropsFromDispatch;
 
 class PandasListPage extends React.Component<Props> {
   handleSelectPanda = (key: string) => {
-    this.props.history.push('/pandas/' + key);
+    this.props.history.push('/hoc/pandas/' + key);
   };
 
   handleNewPandaWithReduxForm = () => {
-    this.props.history.push('/createPandaWithReduxForm');
+    this.props.history.push('/hoc/createPandaWithReduxForm');
   };
 
   handleNewPandaWithFormik = () => {
-    this.props.history.push('/createPandaWithFormik');
+    this.props.history.push('/hoc/createPandaWithFormik');
   };
 
   componentDidMount() {

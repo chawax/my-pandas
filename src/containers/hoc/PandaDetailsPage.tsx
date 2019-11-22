@@ -18,7 +18,7 @@ type Props = RouteComponentProps<PathParamsType> & PropsFromState;
 
 class PandaDetailsPage extends React.Component<Props> {
   handleClose = () => {
-    this.props.history.replace('/');
+    this.props.history.replace('/hoc/pandas');
   };
 
   render() {
