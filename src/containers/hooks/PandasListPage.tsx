@@ -20,7 +20,7 @@ const PandasListPage = () => {
   }, []);
 
   const handleSelectPanda = (key: string) => {
-    history.push('/pandas/' + key);
+    history.push('/hooks/pandas/' + key);
   };
 
   const handleNewPandaWithReduxForm = () => {
