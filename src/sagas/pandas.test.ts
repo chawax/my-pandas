@@ -108,7 +108,13 @@ describe('createPanda', () => {
 
     // Configuration et exécution de la saga
 
-    const state = {};
+    const state = {
+      router: {
+        location: {
+          pathname: '/hooks/pandas/',
+        },
+      },
+    };
     const action = createPandaRequest(newPanda);
     const dispatched: Action[] = [];
     const sagaConfig = {
@@ -121,7 +127,7 @@ describe('createPanda', () => {
 
     expect(dispatched).toEqual([
       createPandaSuccess(createdPanda), //
-      push('/'),
+      push('/hooks/pandas'),
     ]);
 
     // Contrôle des appels d'API
