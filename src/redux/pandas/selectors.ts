@@ -21,3 +21,7 @@ export const findPanda = (state: AppState, key: string): Panda | undefined => {
     })
   );
 };
+
+export const isHooksEnabled = (state: AppState): boolean => {
+  return state.router.location.pathname.split('/')[1] === 'hooks';
+};
