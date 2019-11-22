@@ -23,6 +23,7 @@ Principaux outils et librairies :
 - [Typescript](https://www.typescriptlang.org/) - Librairie de typage
 - [React Scripts](https://www.npmjs.com/package/react-scripts) - Ensemble de scripts NPM pour les opérations sur le projet
 - [Redux](https://redux.js.org/) - Gestion de l'état de l'application
+- [Immer](https://immerjs.github.io/immer/) - Librairie pour faciliter l'application de l'immutabilité
 - [Redux Saga](https://github.com/redux-saga/redux-saga) - Gestion des effets de bord
 - [Redux Form](https://redux-form.com/) - Gestion des formulaires
 - [Formik](https://jaredpalmer.com/formik) - Gestion des formulaires (librairie alternative)
