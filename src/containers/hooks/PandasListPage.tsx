@@ -24,11 +24,11 @@ const PandasListPage = () => {
   };
 
   const handleNewPandaWithReduxForm = () => {
-    history.push('/createPandaWithReduxForm');
+    history.push('/hooks/createPandaWithReduxForm');
   };
 
   const handleNewPandaWithFormik = () => {
-    history.push('/createPandaWithFormik');
+    history.push('/hooks/createPandaWithFormik');
   };
 
   const handleRetry = () => {
