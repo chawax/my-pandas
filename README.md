@@ -98,8 +98,14 @@ npm test -- --watchAll=false
 
 ## Contrôle des vulnérabilités des dépendances
 
-La commande `npm audit` permet de contrôler les dépendances de l'application et fournit un rapport listant les vulnérabilités des librairies référencées par le projet.
+La commande `npm audit` permet de contrôler les dépendances de l'application et fournit un rapport listant les vulnérabilités des librairies référencées par le projet. L'outil s'appuie sur la base gérée par l'organisme OWASP pour identifier les dépendances problématiques.
 
 ```
 npm audit
+```
+
+Pour mettre à jour automatiquement les dépendances lancer la commande :
+
+```
+npm audit fix
 ```
