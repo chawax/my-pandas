@@ -8,7 +8,8 @@ Elle permet de démontrer :
 
 - Les bases d'un projet React
 - L'utilisation de Typescript dans un projet React
-- La gestion de l'état avec Redux et Redux Persist
+- La gestion de l'état avec Redux, en utilisant le composant HOC connect ou les hooks
+- La persistence de l'état avec Redux Persist
 - La gestion des effets de bord avec Redux Saga
 - La gestion des formulaires avec Redux Form et avec Formik
 - La gestion de la navigation avec React Router DOM

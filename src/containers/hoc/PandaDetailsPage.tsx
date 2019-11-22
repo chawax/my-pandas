@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import PandaDetails from '../components/PandaDetails';
-import { findPanda } from '../redux/pandas/selectors';
-import { AppState } from '../redux/store';
-import { Panda } from '../types/Pandas';
+import PandaDetails from '../../components/PandaDetails';
+import { findPanda } from '../../redux/pandas/selectors';
+import { AppState } from '../../redux/store';
+import { Panda } from '../../types/Pandas';
 
 interface PropsFromState {
   panda: Panda | undefined;
@@ -18,7 +18,7 @@ type Props = RouteComponentProps<PathParamsType> & PropsFromState;
 
 class PandaDetailsPage extends React.Component<Props> {
   handleClose = () => {
-    this.props.history.replace('/');
+    this.props.history.replace('/hoc/pandas');
   };
 
   render() {

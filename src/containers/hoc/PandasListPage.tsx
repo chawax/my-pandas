@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Alert, Button, Spinner } from 'reactstrap';
 import { Dispatch } from 'redux';
-import PandasList from '../components/PandasList';
-import { loadPandasRequest } from '../redux/pandas/actions';
-import { getError, getPandas, isFetching } from '../redux/pandas/selectors';
-import { AppState } from '../redux/store';
-import { Panda } from '../types/Pandas';
+import PandasList from '../../components/PandasList';
+import { loadPandasRequest } from '../../redux/pandas/actions';
+import { getError, getPandas, isFetching } from '../../redux/pandas/selectors';
+import { AppState } from '../../redux/store';
+import { Panda } from '../../types/Pandas';
 
 interface PropsFromState {
   pandas: Panda[];
@@ -23,15 +23,19 @@ type Props = RouteComponentProps & PropsFromState & PropsFromDispatch;
 
 class PandasListPage extends React.Component<Props> {
   handleSelectPanda = (key: string) => {
-    this.props.history.push('/pandas/' + key);
+    this.props.history.push('/hoc/pandas/' + key);
   };
 
   handleNewPandaWithReduxForm = () => {
-    this.props.history.push('/createPandaWithReduxForm');
+    this.props.history.push('/hoc/createPandaWithReduxForm');
   };
 
   handleNewPandaWithFormik = () => {
-    this.props.history.push('/createPandaWithFormik');
+    this.props.history.push('/hoc/createPandaWithFormik');
+  };
+
+  handleHome = () => {
+    this.props.history.replace('/');
   };
 
   componentDidMount() {
@@ -71,8 +75,15 @@ class PandasListPage extends React.Component<Props> {
               >
                 Ajouter un panda (avec Redux Form)
               </Button>
-              <Button color="primary" style={{ marginTop: 10 }} onClick={this.handleNewPandaWithFormik}>
+              <Button
+                color="primary"
+                style={{ marginTop: 10, marginRight: 10 }}
+                onClick={this.handleNewPandaWithFormik}
+              >
                 Ajouter un panda (avec Formik)
+              </Button>
+              <Button color="secondary" style={{ marginTop: 10 }} onClick={this.handleHome}>
+                Accueil
               </Button>
             </>
           )}
