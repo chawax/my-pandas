@@ -10,7 +10,7 @@ const CreatePandaWithFormikPage = () => {
   const history: History = useHistory();
 
   const handleCancel = () => {
-    history.replace('/hoc/pandas');
+    history.replace('/hooks/pandas');
   };
 
   const handleSubmit = (values: PandaFormValues) => {
