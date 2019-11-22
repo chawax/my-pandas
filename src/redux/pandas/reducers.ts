@@ -1,3 +1,4 @@
+import { produce } from 'immer';
 import {
   CREATE_PANDA_FAILURE,
   CREATE_PANDA_REQUEST,
@@ -15,7 +16,48 @@ const initialState: PandasState = {
   error: undefined,
 };
 
-export function pandasReducer(state = initialState, action: PandasActionTypes): PandasState {
+export const pandasReducer = (state: PandasState = initialState, action: PandasActionTypes) => {
+  return produce(state, draft => {
+    switch (action.type) {
+      case LOAD_PANDAS_REQUEST:
+        draft.data = [];
+        draft.error = undefined;
+        draft.fetching = true;
+        break;
+      case LOAD_PANDAS_SUCCESS:
+        draft.data = action.payload;
+        draft.error = undefined;
+        draft.fetching = false;
+        break;
+      case LOAD_PANDAS_FAILURE:
+        draft.data = [];
+        draft.error = action.payload;
+        draft.fetching = false;
+        break;
+      case CREATE_PANDA_REQUEST:
+        draft.fetching = true;
+        draft.error = undefined;
+        break;
+      case CREATE_PANDA_SUCCESS:
+        draft.fetching = false;
+        if (draft.data) {
+          draft.data.push(action.payload);
+        } else {
+          draft.data = [action.payload];
+        }
+        draft.error = undefined;
+        break;
+      case CREATE_PANDA_FAILURE:
+        draft.error = action.payload;
+        draft.fetching = false;
+        break;
+    }
+  });
+};
+
+// Ci-dessous le reducer sans utiliser Immer (seulement en utiliser le spread operator)
+
+export function oldPandasReducer(state = initialState, action: PandasActionTypes): PandasState {
   switch (action.type) {
     case LOAD_PANDAS_REQUEST:
       return {
