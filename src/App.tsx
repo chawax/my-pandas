@@ -5,8 +5,11 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import CreatePandaWithFormikPage from './containers/CreatePandaWithFormikPage';
 import CreatePandaWithReduxFormPage from './containers/CreatePandaWithReduxFormPage';
-import PandaDetailsPage from './containers/PandaDetailsPage';
-import PandasListPage from './containers/PandasListPage';
+import PandaDetailsWithHocPage from './containers/hoc/PandaDetailsPage';
+import PandasListWithHocPage from './containers/hoc/PandasListPage';
+import Home from './containers/Home';
+import PandaDetailsWithHooksPage from './containers/hooks/PandaDetailsPage';
+import PandasListWithHooksPage from './containers/hooks/PandasListPage';
 import store from './redux/store';
 import history from './services/history';
 
@@ -17,8 +20,11 @@ const App: React.FC = () => {
         My pandas
       </h2>
       <ConnectedRouter history={history}>
-        <Route path="/" exact component={PandasListPage} />
-        <Route path="/pandas/:id" component={PandaDetailsPage} />
+        <Route path="/" exact component={Home} />
+        <Route path="/hoc/pandas" component={PandasListWithHocPage} />
+        <Route path="/hoc/pandas/:id" component={PandaDetailsWithHocPage} />
+        <Route path="/hooks/pandas" component={PandasListWithHooksPage} />
+        <Route path="/hooks/pandas/:id" component={PandaDetailsWithHooksPage} />
         <Route path="/createPandaWithReduxForm" component={CreatePandaWithReduxFormPage} />
         <Route path="/createPandaWithFormik" component={CreatePandaWithFormikPage} />
       </ConnectedRouter>
