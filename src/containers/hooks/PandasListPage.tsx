@@ -23,10 +23,6 @@ const PandasListPage = () => {
     history.push('/hooks/pandas/' + key);
   };
 
-  const handleNewPandaWithReduxForm = () => {
-    history.push('/hooks/createPandaWithReduxForm');
-  };
-
   const handleNewPandaWithFormik = () => {
     history.push('/hooks/createPandaWithFormik');
   };
@@ -54,9 +50,6 @@ const PandasListPage = () => {
         {pandas && (
           <>
             <PandasList pandas={pandas} onSelectPanda={handleSelectPanda} />
-            <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithReduxForm}>
-              Ajouter un panda (avec Redux Form)
-            </Button>
             <Button color="primary" style={{ marginTop: 10 }} onClick={handleNewPandaWithFormik}>
               Ajouter un panda (avec Formik)
             </Button>
