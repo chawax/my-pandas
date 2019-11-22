@@ -12,7 +12,7 @@ import { pandasReducer } from './pandas/reducers';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['form'],
+  blacklist: ['form', 'router'],
 };
 
 const rootReducer = combineReducers({
