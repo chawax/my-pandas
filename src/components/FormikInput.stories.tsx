@@ -3,7 +3,7 @@ import React from 'react';
 import FormikInput from './FormikInput';
 
 export default {
-  title: 'FormikInput',
+  title: 'Design System|FormikInput',
 };
 
 export const noInitialValue = () => {
