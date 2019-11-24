@@ -2,14 +2,7 @@ import { push } from 'connected-react-router';
 import { Action } from 'redux';
 import { runSaga } from 'redux-saga';
 import sinon, { SinonSandbox, SinonStub } from 'sinon';
-import {
-  createPandaFailure,
-  createPandaRequest,
-  createPandaSuccess,
-  loadPandasFailure,
-  loadPandasRequest,
-  loadPandasSuccess,
-} from '../redux/pandas';
+import slice from '../redux/pandas';
 import api from '../services/api';
 import { Panda } from '../types/Pandas';
 import { createPanda, loadPandas } from './pandas';
@@ -42,7 +35,7 @@ describe('loadPandas', () => {
     // Configuration et exécution de la saga
 
     const state = {};
-    const action = loadPandasRequest();
+    const action = slice.actions.loadPandasRequest();
     const dispatched: Action[] = [];
     const sagaConfig = {
       dispatch: (a: Action) => dispatched.push(a),
@@ -52,7 +45,7 @@ describe('loadPandas', () => {
 
     // Contrôle des actions dispatchées
 
-    expect(dispatched).toEqual([loadPandasSuccess(pandas)]);
+    expect(dispatched).toEqual([slice.actions.loadPandasSuccess(pandas)]);
 
     // Contrôle des appels d'API
 
@@ -68,7 +61,7 @@ describe('loadPandas', () => {
     // Configuration et exécution de la saga
 
     const state = {};
-    const action = loadPandasRequest();
+    const action = slice.actions.loadPandasRequest();
     const dispatched: Action[] = [];
     const sagaConfig = {
       dispatch: (a: Action) => dispatched.push(a),
@@ -78,7 +71,7 @@ describe('loadPandas', () => {
 
     // contrôle des actions dispatchées
 
-    expect(dispatched).toEqual([loadPandasFailure(error)]);
+    expect(dispatched).toEqual([slice.actions.loadPandasFailure(error)]);
 
     // Contrôle des appels d'API
 
@@ -115,7 +108,7 @@ describe('createPanda', () => {
         },
       },
     };
-    const action = createPandaRequest(newPanda);
+    const action = slice.actions.createPandaRequest(newPanda);
     const dispatched: Action[] = [];
     const sagaConfig = {
       dispatch: (a: Action) => dispatched.push(a),
@@ -126,7 +119,7 @@ describe('createPanda', () => {
     // Contrôle des actions dispatchées
 
     expect(dispatched).toEqual([
-      createPandaSuccess(createdPanda), //
+      slice.actions.createPandaSuccess(createdPanda), //
       push('/hooks/pandas'),
     ]);
 
@@ -144,7 +137,7 @@ describe('createPanda', () => {
     // Configuration et exécution de la saga
 
     const state = {};
-    const action = createPandaRequest(newPanda);
+    const action = slice.actions.createPandaRequest(newPanda);
     const dispatched: Action[] = [];
     const sagaConfig = {
       dispatch: (a: Action) => dispatched.push(a),
@@ -154,7 +147,7 @@ describe('createPanda', () => {
 
     // contrôle des actions dispatchées
 
-    expect(dispatched).toEqual([createPandaFailure(error)]);
+    expect(dispatched).toEqual([slice.actions.createPandaFailure(error)]);
 
     // Contrôle des appels d'API
 

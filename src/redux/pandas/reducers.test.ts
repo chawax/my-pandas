@@ -1,18 +1,11 @@
 import pandas from '../../pandas';
 import { Panda } from '../../types/Pandas';
-import reducer, {
-  createPandaFailure,
-  createPandaRequest,
-  createPandaSuccess,
-  loadPandasFailure,
-  loadPandasRequest,
-  loadPandasSuccess,
-} from './index';
+import slice from './index';
 import { PandasState } from './types';
 
 test('loadPandasRequest', () => {
-  const action = loadPandasRequest();
-  expect(reducer(undefined, action)).toEqual({
+  const action = slice.actions.loadPandasRequest();
+  expect(slice.reducer(undefined, action)).toEqual({
     data: [],
     fetching: true,
     error: undefined,
@@ -20,8 +13,8 @@ test('loadPandasRequest', () => {
 });
 
 test('loadPandasSuccess', () => {
-  const action = loadPandasSuccess(pandas);
-  expect(reducer(undefined, action)).toEqual({
+  const action = slice.actions.loadPandasSuccess(pandas);
+  expect(slice.reducer(undefined, action)).toEqual({
     data: pandas,
     fetching: false,
     error: undefined,
@@ -30,8 +23,8 @@ test('loadPandasSuccess', () => {
 
 test('loadPandasFailure', () => {
   const error = new Error('An error for test');
-  const action = loadPandasFailure(error);
-  expect(reducer(undefined, action)).toEqual({
+  const action = slice.actions.loadPandasFailure(error);
+  expect(slice.reducer(undefined, action)).toEqual({
     data: [],
     fetching: false,
     error: error,
@@ -44,8 +37,8 @@ test('createPandaRequest', () => {
     image: 'imageUrl',
     interests: ['interest1', 'interest2'],
   };
-  const action = createPandaRequest(panda);
-  expect(reducer(undefined, action)).toEqual({
+  const action = slice.actions.createPandaRequest(panda);
+  expect(slice.reducer(undefined, action)).toEqual({
     fetching: true,
     data: [],
     error: undefined,
@@ -61,8 +54,8 @@ describe('createPandaSuccess', () => {
   };
 
   test('aucun panda dans le store', () => {
-    const action = createPandaSuccess(panda);
-    expect(reducer(undefined, action)).toEqual({
+    const action = slice.actions.createPandaSuccess(panda);
+    expect(slice.reducer(undefined, action)).toEqual({
       fetching: false,
       data: [panda],
       error: undefined,
@@ -70,7 +63,7 @@ describe('createPandaSuccess', () => {
   });
 
   test('déjà des pandas dans le store', () => {
-    const action = createPandaSuccess(panda);
+    const action = slice.actions.createPandaSuccess(panda);
     const existingPanda = {
       key: '1',
       name: 'panda 1',
@@ -81,7 +74,7 @@ describe('createPandaSuccess', () => {
       fetching: false,
       data: [existingPanda],
     };
-    expect(reducer(state, action)).toEqual({
+    expect(slice.reducer(state, action)).toEqual({
       fetching: false,
       data: [existingPanda, panda],
       error: undefined,
@@ -91,8 +84,8 @@ describe('createPandaSuccess', () => {
 
 test('createPandaFailure', () => {
   const error = new Error('An error for test');
-  const action = createPandaFailure(error);
-  expect(reducer(undefined, action)).toEqual({
+  const action = slice.actions.createPandaFailure(error);
+  expect(slice.reducer(undefined, action)).toEqual({
     data: [],
     fetching: false,
     error: error,

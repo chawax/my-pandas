@@ -7,11 +7,11 @@ import storage from 'redux-persist/lib/storage';
 import createSagasMiddleware from 'redux-saga';
 import rootSaga from '../sagas';
 import history from '../services/history';
-import pandasReducer from './pandas';
+import pandasSlice from './pandas';
 
 // Création du root reducer
 const rootReducer = combineReducers({
-  pandas: pandasReducer,
+  pandas: pandasSlice.reducer,
   form: formReducer,
   router: connectRouter(history),
 });

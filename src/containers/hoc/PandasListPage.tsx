@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { Alert, Button, Spinner } from 'reactstrap';
 import { Dispatch } from 'redux';
 import PandasList from '../../components/PandasList';
-import { loadPandasRequest } from '../../redux/pandas';
+import pandasSlice from '../../redux/pandas';
 import { getError, getPandas, isFetching } from '../../redux/pandas/selectors';
 import { AppState } from '../../redux/store';
 import { Panda } from '../../types/Pandas';
@@ -103,7 +103,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   return {
-    loadPandas: () => dispatch(loadPandasRequest()),
+    loadPandas: () => dispatch(pandasSlice.actions.loadPandasRequest()),
   };
 };
 

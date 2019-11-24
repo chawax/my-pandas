@@ -8,7 +8,8 @@ Elle permet de démontrer :
 
 - Les bases d'un projet React
 - L'utilisation de Typescript dans un projet React
-- La gestion de l'état avec Redux, en utilisant le composant HOC connect ou les hooks
+- La gestion de l'état avec Redux, en utilisant le composant HOC connect ou les hooks.
+- La simplification de l'utilisation de Redux avec Redux Toolkit
 - La persistence de l'état avec Redux Persist
 - La gestion des effets de bord avec Redux Saga
 - La gestion des formulaires avec Redux Form et avec Formik
@@ -24,7 +25,8 @@ Principaux outils et librairies :
 - [Typescript](https://www.typescriptlang.org/) - Librairie de typage
 - [React Scripts](https://www.npmjs.com/package/react-scripts) - Ensemble de scripts NPM pour les opérations sur le projet
 - [Redux](https://redux.js.org/) - Gestion de l'état de l'application
-- [Immer](https://immerjs.github.io/immer/) - Librairie pour faciliter l'application de l'immutabilité
+- [Redux Toolkit](https://redux-toolkit.js.org/) - Utilitaires pour faciliter la manipulation de Redux
+- [Immer](https://immerjs.github.io/immer/) - Librairie pour faciliter l'application de l'immutabilité (implicitement utilisé par Redux Toolkit)
 - [Redux Saga](https://github.com/redux-saga/redux-saga) - Gestion des effets de bord
 - [Redux Form](https://redux-form.com/) - Gestion des formulaires
 - [Formik](https://jaredpalmer.com/formik) - Gestion des formulaires (librairie alternative)
