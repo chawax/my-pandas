@@ -7,7 +7,7 @@ import storage from 'redux-persist/lib/storage';
 import createSagasMiddleware from 'redux-saga';
 import rootSaga from '../sagas';
 import history from '../services/history';
-import { pandasReducer } from './pandas/reducers';
+import pandasReducer from './pandas';
 
 const persistConfig = {
   key: 'root',

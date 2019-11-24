@@ -1,18 +1,18 @@
+import { push } from 'connected-react-router';
 import { Action } from 'redux';
 import { runSaga } from 'redux-saga';
 import sinon, { SinonSandbox, SinonStub } from 'sinon';
 import {
+  createPandaFailure,
+  createPandaRequest,
+  createPandaSuccess,
   loadPandasFailure,
   loadPandasRequest,
   loadPandasSuccess,
-  createPandaRequest,
-  createPandaSuccess,
-  createPandaFailure,
-} from '../redux/pandas/actions';
+} from '../redux/pandas';
 import api from '../services/api';
-import { loadPandas, createPanda } from './pandas';
 import { Panda } from '../types/Pandas';
-import { push } from 'connected-react-router';
+import { createPanda, loadPandas } from './pandas';
 
 describe('loadPandas', () => {
   const pandas = [

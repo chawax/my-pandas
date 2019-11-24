@@ -1,4 +1,5 @@
 import { produce } from 'immer';
+import { Panda } from '../../types/Pandas';
 import {
   CREATE_PANDA_FAILURE,
   CREATE_PANDA_REQUEST,
@@ -10,13 +11,59 @@ import {
   PandasState,
 } from './types';
 
+// Action creators
+
+export function loadPandasRequest(): PandasActionTypes {
+  return {
+    type: LOAD_PANDAS_REQUEST,
+    payload: undefined,
+  };
+}
+
+export function loadPandasSuccess(pandas: Panda[]): PandasActionTypes {
+  return {
+    type: LOAD_PANDAS_SUCCESS,
+    payload: pandas,
+  };
+}
+
+export function loadPandasFailure(error: Error): PandasActionTypes {
+  return {
+    type: LOAD_PANDAS_FAILURE,
+    payload: error,
+  };
+}
+
+export function createPandaRequest(panda: Panda): PandasActionTypes {
+  return {
+    type: CREATE_PANDA_REQUEST,
+    payload: panda,
+  };
+}
+
+export function createPandaSuccess(panda: Panda): PandasActionTypes {
+  return {
+    type: CREATE_PANDA_SUCCESS,
+    payload: panda,
+  };
+}
+
+export function createPandaFailure(error: Error): PandasActionTypes {
+  return {
+    type: CREATE_PANDA_FAILURE,
+    payload: error,
+  };
+}
+
+// Reducer
+
 const initialState: PandasState = {
   data: [],
   fetching: false,
   error: undefined,
 };
 
-export const pandasReducer = (state: PandasState = initialState, action: PandasActionTypes) => {
+const reducer = (state: PandasState = initialState, action: PandasActionTypes) => {
   return produce(state, draft => {
     switch (action.type) {
       case LOAD_PANDAS_REQUEST:
@@ -55,51 +102,4 @@ export const pandasReducer = (state: PandasState = initialState, action: PandasA
   });
 };
 
-// Ci-dessous le reducer sans utiliser Immer (seulement en utiliser le spread operator)
-
-export function oldPandasReducer(state = initialState, action: PandasActionTypes): PandasState {
-  switch (action.type) {
-    case LOAD_PANDAS_REQUEST:
-      return {
-        ...state,
-        data: [],
-        error: undefined,
-        fetching: true,
-      };
-    case LOAD_PANDAS_SUCCESS:
-      return {
-        ...state,
-        data: action.payload,
-        error: undefined,
-        fetching: false,
-      };
-    case LOAD_PANDAS_FAILURE:
-      return {
-        ...state,
-        data: [],
-        error: action.payload,
-        fetching: false,
-      };
-    case CREATE_PANDA_REQUEST:
-      return {
-        ...state,
-        fetching: true,
-        error: undefined,
-      };
-    case CREATE_PANDA_SUCCESS:
-      return {
-        ...state,
-        fetching: false,
-        data: state.data ? [...state.data, action.payload] : [action.payload],
-        error: undefined,
-      };
-    case CREATE_PANDA_FAILURE:
-      return {
-        ...state,
-        fetching: false,
-        error: action.payload,
-      };
-    default:
-      return state;
-  }
-}
+export default reducer;

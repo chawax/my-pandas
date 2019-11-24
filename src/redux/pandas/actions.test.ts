@@ -7,20 +7,27 @@ import {
   loadPandasFailure,
   loadPandasRequest,
   loadPandasSuccess,
-} from './actions';
-import { CREATE_PANDA_REQUEST, CREATE_PANDA_SUCCESS, CREATE_PANDA_FAILURE } from './types';
+} from './index';
+import {
+  CREATE_PANDA_FAILURE,
+  CREATE_PANDA_REQUEST,
+  CREATE_PANDA_SUCCESS,
+  LOAD_PANDAS_FAILURE,
+  LOAD_PANDAS_REQUEST,
+  LOAD_PANDAS_SUCCESS,
+} from './types';
 
 test('loadPandasRequest', () => {
   const action = loadPandasRequest();
   expect(action).toEqual({
-    type: '@app/LOAD_PANDAS_REQUEST',
+    type: LOAD_PANDAS_REQUEST,
   });
 });
 
 test('loadPandasSuccess', () => {
   const action = loadPandasSuccess(pandas);
   expect(action).toEqual({
-    type: '@app/LOAD_PANDAS_SUCCESS',
+    type: LOAD_PANDAS_SUCCESS,
     payload: pandas,
   });
 });
@@ -29,7 +36,7 @@ test('loadPandasFailure', () => {
   const error = new Error('An error for test');
   const action = loadPandasFailure(error);
   expect(action).toEqual({
-    type: '@app/LOAD_PANDAS_FAILURE',
+    type: LOAD_PANDAS_FAILURE,
     payload: error,
   });
 });

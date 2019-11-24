@@ -1,6 +1,6 @@
 import { push } from 'connected-react-router';
 import { call, put, select } from 'redux-saga/effects';
-import { createPandaFailure, createPandaSuccess, loadPandasFailure, loadPandasSuccess } from '../redux/pandas/actions';
+import { createPandaFailure, createPandaSuccess, loadPandasFailure, loadPandasSuccess } from '../redux/pandas';
 import { isHooksEnabled } from '../redux/pandas/selectors';
 import { CreatePandaRequestAction } from '../redux/pandas/types';
 import api from '../services/api';

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Dispatch } from 'redux';
 import CreatePandaForm, { FormData as CreatePandaFormData } from '../../components/CreatePandaForm';
-import { createPandaRequest } from '../../redux/pandas/actions';
+import { createPandaRequest } from '../../redux/pandas';
 import { AppState } from '../../redux/store';
 import { Panda } from '../../types/Pandas';
 

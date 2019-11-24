@@ -1,19 +1,18 @@
 import pandas from '../../pandas';
-import {
-  loadPandasSuccess,
-  loadPandasRequest,
-  loadPandasFailure,
+import { Panda } from '../../types/Pandas';
+import reducer, {
+  createPandaFailure,
   createPandaRequest,
   createPandaSuccess,
-  createPandaFailure,
-} from './actions';
-import { pandasReducer } from './reducers';
-import { Panda } from '../../types/Pandas';
+  loadPandasFailure,
+  loadPandasRequest,
+  loadPandasSuccess,
+} from './index';
 import { PandasState } from './types';
 
 test('loadPandasRequest', () => {
   const action = loadPandasRequest();
-  expect(pandasReducer(undefined, action)).toEqual({
+  expect(reducer(undefined, action)).toEqual({
     data: [],
     fetching: true,
     error: undefined,
@@ -22,7 +21,7 @@ test('loadPandasRequest', () => {
 
 test('loadPandasSuccess', () => {
   const action = loadPandasSuccess(pandas);
-  expect(pandasReducer(undefined, action)).toEqual({
+  expect(reducer(undefined, action)).toEqual({
     data: pandas,
     fetching: false,
     error: undefined,
@@ -32,7 +31,7 @@ test('loadPandasSuccess', () => {
 test('loadPandasFailure', () => {
   const error = new Error('An error for test');
   const action = loadPandasFailure(error);
-  expect(pandasReducer(undefined, action)).toEqual({
+  expect(reducer(undefined, action)).toEqual({
     data: [],
     fetching: false,
     error: error,
@@ -46,7 +45,7 @@ test('createPandaRequest', () => {
     interests: ['interest1', 'interest2'],
   };
   const action = createPandaRequest(panda);
-  expect(pandasReducer(undefined, action)).toEqual({
+  expect(reducer(undefined, action)).toEqual({
     fetching: true,
     data: [],
     error: undefined,
@@ -63,7 +62,7 @@ describe('createPandaSuccess', () => {
 
   test('aucun panda dans le store', () => {
     const action = createPandaSuccess(panda);
-    expect(pandasReducer(undefined, action)).toEqual({
+    expect(reducer(undefined, action)).toEqual({
       fetching: false,
       data: [panda],
       error: undefined,
@@ -82,7 +81,7 @@ describe('createPandaSuccess', () => {
       fetching: false,
       data: [existingPanda],
     };
-    expect(pandasReducer(state, action)).toEqual({
+    expect(reducer(state, action)).toEqual({
       fetching: false,
       data: [existingPanda, panda],
       error: undefined,
@@ -93,7 +92,7 @@ describe('createPandaSuccess', () => {
 test('createPandaFailure', () => {
   const error = new Error('An error for test');
   const action = createPandaFailure(error);
-  expect(pandasReducer(undefined, action)).toEqual({
+  expect(reducer(undefined, action)).toEqual({
     data: [],
     fetching: false,
     error: error,

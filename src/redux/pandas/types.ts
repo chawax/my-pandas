@@ -6,12 +6,12 @@ export interface PandasState {
   error?: Error;
 }
 
-export const LOAD_PANDAS_REQUEST = '@app/LOAD_PANDAS_REQUEST';
-export const LOAD_PANDAS_SUCCESS = '@app/LOAD_PANDAS_SUCCESS';
-export const LOAD_PANDAS_FAILURE = '@app/LOAD_PANDAS_FAILURE';
-export const CREATE_PANDA_REQUEST = '@app/CREATE_PANDA_REQUEST';
-export const CREATE_PANDA_SUCCESS = '@app/CREATE_PANDA_SUCCESS';
-export const CREATE_PANDA_FAILURE = '@app/CREATE_PANDA_FAILURE';
+export const LOAD_PANDAS_REQUEST = '@app/pandas/LOAD_REQUEST';
+export const LOAD_PANDAS_SUCCESS = '@app/pandas/LOAD_SUCCESS';
+export const LOAD_PANDAS_FAILURE = '@app/pandas/LOAD_FAILURE';
+export const CREATE_PANDA_REQUEST = '@app/pandas/CREATE_REQUEST';
+export const CREATE_PANDA_SUCCESS = '@app/pandas/CREATE_SUCCESS';
+export const CREATE_PANDA_FAILURE = '@app/pandas/CREATE_FAILURE';
 
 // We export actions that will be used to trigger a saga
 interface LoadPandasRequestAction {
