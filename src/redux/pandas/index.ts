@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Panda } from '../../types/Pandas';
-import { PandasState } from './types';
 
 // Typage du state
 
-export interface PandasState {
+interface State {
   data: Panda[];
   fetching: boolean;
   error?: Error;
@@ -12,7 +11,7 @@ export interface PandasState {
 
 // State initial
 
-const initialState: PandasState = {
+const initialState: State = {
   data: [],
   fetching: false,
   error: undefined,
@@ -25,26 +24,26 @@ const slice = createSlice({
   name: 'pandas',
   initialState: initialState,
   reducers: {
-    loadPandasRequest: state => {
+    loadPandasRequest: (state: State) => {
       state.data = [];
       state.error = undefined;
       state.fetching = true;
     },
-    loadPandasSuccess: (state, action: PayloadAction<Panda[]>) => {
+    loadPandasSuccess: (state: State, action: PayloadAction<Panda[]>) => {
       state.data = action.payload;
       state.error = undefined;
       state.fetching = false;
     },
-    loadPandasFailure: (state, action: PayloadAction<Error>) => {
+    loadPandasFailure: (state: State, action: PayloadAction<Error>) => {
       state.data = [];
       state.error = action.payload;
       state.fetching = false;
     },
-    createPandaRequest: (state, action: PayloadAction<Panda>) => {
+    createPandaRequest: (state: State, action: PayloadAction<Panda>) => {
       state.fetching = true;
       state.error = undefined;
     },
-    createPandaSuccess: (state, action: PayloadAction<Panda>) => {
+    createPandaSuccess: (state: State, action: PayloadAction<Panda>) => {
       state.fetching = false;
       if (state.data) {
         state.data.push(action.payload);
@@ -53,7 +52,7 @@ const slice = createSlice({
       }
       state.error = undefined;
     },
-    createPandaFailure: (state, action: PayloadAction<Error>) => {
+    createPandaFailure: (state: State, action: PayloadAction<Error>) => {
       state.error = action.payload;
       state.fetching = false;
     },
