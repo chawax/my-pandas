@@ -1,7 +1,6 @@
 import pandas from '../../pandas';
 import { Panda } from '../../types/Pandas';
-import slice from './index';
-import { PandasState } from './types';
+import slice, { State as PandasState } from './index';
 
 test('loadPandasRequest', () => {
   const action = slice.actions.loadPandasRequest();

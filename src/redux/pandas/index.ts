@@ -3,7 +3,7 @@ import { Panda } from '../../types/Pandas';
 
 // Typage du state
 
-interface State {
+export interface State {
   data: Panda[];
   fetching: boolean;
   error?: Error;
