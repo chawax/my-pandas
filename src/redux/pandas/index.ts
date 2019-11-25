@@ -21,7 +21,7 @@ const initialState: State = {
 // Immer est utilisé en interne
 
 const slice = createSlice({
-  name: '@app/pandas',
+  name: '@@app/pandas',
   initialState: initialState,
   reducers: {
     loadPandasRequest: (state: State) => {
