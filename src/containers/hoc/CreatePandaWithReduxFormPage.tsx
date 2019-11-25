@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Dispatch } from 'redux';
 import CreatePandaForm, { FormData as CreatePandaFormData } from '../../components/CreatePandaForm';
-import { createPandaRequest } from '../../redux/pandas/actions';
+import pandasSlice from '../../redux/pandas';
 import { AppState } from '../../redux/store';
 import { Panda } from '../../types/Pandas';
 
@@ -46,7 +46,7 @@ const mapStateToProps = (state: AppState): PropsFromState => {
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   return {
-    createPanda: (panda: Panda) => dispatch(createPandaRequest(panda)),
+    createPanda: (panda: Panda) => dispatch(pandasSlice.actions.createPandaRequest(panda)),
   };
 };
 

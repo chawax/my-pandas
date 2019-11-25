@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Alert, Button, Spinner } from 'reactstrap';
 import PandasList from '../../components/PandasList';
-import { loadPandasRequest } from '../../redux/pandas/actions';
+import pandasSlice from '../../redux/pandas';
 import { getError, getPandas, isFetching } from '../../redux/pandas/selectors';
 import { Panda } from '../../types/Pandas';
 
@@ -16,7 +16,7 @@ const PandasListPage = () => {
   const history: History = useHistory();
 
   useEffect(() => {
-    dispatch(loadPandasRequest());
+    dispatch(pandasSlice.actions.loadPandasRequest());
   }, []);
 
   const handleSelectPanda = (key: string) => {
@@ -32,7 +32,7 @@ const PandasListPage = () => {
   };
 
   const handleRetry = () => {
-    dispatch(loadPandasRequest());
+    dispatch(pandasSlice.actions.loadPandasRequest());
   };
 
   const renderError = () => {

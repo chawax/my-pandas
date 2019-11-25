@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaFormik';
-import { createPandaRequest } from '../../redux/pandas/actions';
+import pandasSlice from '../../redux/pandas';
 
 const CreatePandaWithFormikPage = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const CreatePandaWithFormikPage = () => {
       interests: values.interests.split(','),
       image: values.image,
     };
-    dispatch(createPandaRequest(panda));
+    dispatch(pandasSlice.actions.createPandaRequest(panda));
   };
 
   return (

@@ -1,20 +1,17 @@
+import { push } from 'connected-react-router';
 import { Action } from 'redux';
 import { runSaga } from 'redux-saga';
 import sinon, { SinonSandbox, SinonStub } from 'sinon';
-import {
-  loadPandasFailure,
-  loadPandasRequest,
-  loadPandasSuccess,
-  createPandaRequest,
-  createPandaSuccess,
-  createPandaFailure,
-} from '../redux/pandas/actions';
+import slice from '../redux/pandas';
 import api from '../services/api';
-import { loadPandas, createPanda } from './pandas';
 import { Panda } from '../types/Pandas';
-import { push } from 'connected-react-router';
+import { createPanda, loadPandas } from './pandas';
 
 describe('loadPandas', () => {
+  const {
+    actions: { loadPandasRequest, loadPandasSuccess, loadPandasFailure },
+  } = slice;
+
   const pandas = [
     {
       key: '1',
@@ -87,6 +84,10 @@ describe('loadPandas', () => {
 });
 
 describe('createPanda', () => {
+  const {
+    actions: { createPandaRequest, createPandaSuccess, createPandaFailure },
+  } = slice;
+
   const newPanda: Panda = {
     name: 'New panda',
     image: 'https://media.giphy.com/media/EatwJZRUIv41G/giphy-downsized.gif',

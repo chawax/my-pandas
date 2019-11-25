@@ -4,6 +4,7 @@ import { AppState } from '../store';
 import { Panda } from '../../types/Pandas';
 
 test('getPandas', () => {
+  //@ts-ignore
   const state: AppState = {
     pandas: {
       data: pandas,
@@ -14,6 +15,7 @@ test('getPandas', () => {
 });
 
 test('isFetching', () => {
+  //@ts-ignore
   const state: AppState = {
     pandas: {
       data: [],
@@ -25,6 +27,7 @@ test('isFetching', () => {
 
 test('getError', () => {
   const error = new Error('an error for test');
+  //@ts-ignore
   const state: AppState = {
     pandas: {
       data: [],
@@ -36,6 +39,7 @@ test('getError', () => {
 });
 
 test('findPanda', () => {
+  //@ts-ignore
   const state: AppState = {
     pandas: {
       data: pandas,
