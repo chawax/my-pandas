@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import PandaItem from './PandaItem';
+import PandaItem from '.';
 
 export default {
   title: 'PandaItem',

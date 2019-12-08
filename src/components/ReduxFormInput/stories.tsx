@@ -1,6 +1,6 @@
 import React from 'react';
 import { WrappedFieldInputProps, WrappedFieldMetaProps } from 'redux-form';
-import ReduxFormInput from './ReduxFormInput';
+import ReduxFormInput from '.';
 
 export default {
   title: 'Design System|ReduxFormInput',

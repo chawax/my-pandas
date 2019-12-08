@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, compose, createStore, Middleware } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import CreatePandaForm from './CreatePandaForm';
+import CreatePandaForm from '.';
 
 export default {
   title: 'CreatePandaForm',

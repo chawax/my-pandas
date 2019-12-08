@@ -1,7 +1,7 @@
 import { Formik, FormikErrors } from 'formik';
 import React from 'react';
 import { Button } from 'reactstrap';
-import FormikInput from './FormikInput';
+import FormikInput from '../FormikInput';
 
 export interface FormValues {
   name: string;

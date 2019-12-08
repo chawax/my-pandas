@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import React from 'react';
-import FormikInput from './FormikInput';
+import FormikInput from '.';
 
 export default {
   title: 'Design System|FormikInput',
