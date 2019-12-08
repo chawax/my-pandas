@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import CreatePandaFormik from './CreatePandaFormik';
+import CreatePandaFormik from '.';
 
 export default {
   title: 'CreatePandaFormik',

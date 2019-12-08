@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form } from 'reactstrap';
 import { Field, FormErrors, InjectedFormProps, reduxForm } from 'redux-form';
-import ReduxFormInput from './ReduxFormInput';
+import ReduxFormInput from '../ReduxFormInput';
 
 interface OwnProps {
   onCancel(): void;

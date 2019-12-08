@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge, Button, Jumbotron } from 'reactstrap';
-import { Panda } from '../types/Pandas';
+import { Panda } from '../../types/Pandas';
 
 interface Props {
   panda: Panda;

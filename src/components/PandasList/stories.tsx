@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import PandasList from './PandasList';
-import pandas from '../pandas';
+import PandasList from '.';
+import pandas from '../../pandas';
 
 export default {
   title: 'PandasList',

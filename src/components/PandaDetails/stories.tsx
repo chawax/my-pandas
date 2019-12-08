@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import PandaDetails from './PandaDetails';
+import PandaDetails from '.';
 
 export default {
   title: 'PandaDetails',
