@@ -3,16 +3,16 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 import './App.css';
-import CreatePandaWithHocAndFormikPage from './containers/hoc/CreatePandaWithFormikPage';
-import CreatePandaWithHocAndReduxFormPage from './containers/hoc/CreatePandaWithReduxFormPage';
-import PandaDetailsWithHocPage from './containers/hoc/PandaDetailsPage';
-import PandasListWithHocPage from './containers/hoc/PandasListPage';
-import Home from './containers/Home';
-import CreatePandaWithHooksAndFormikPage from './containers/hooks/CreatePandaWithFormikPage';
-import PandaDetailsWithHooksPage from './containers/hooks/PandaDetailsPage';
-import PandasListWithHooksPage from './containers/hooks/PandasListPage';
-import store from './redux/store';
-import history from './services/history';
+import CreatePandaWithHocAndFormikPage from '../hoc/CreatePandaWithFormikPage';
+import CreatePandaWithHocAndReduxFormPage from '../hoc/CreatePandaWithReduxFormPage';
+import PandaDetailsWithHocPage from '../hoc/PandaDetailsPage';
+import PandasListWithHocPage from '../hoc/PandasListPage';
+import Home from '../Home';
+import CreatePandaWithHooksAndFormikPage from '../hooks/CreatePandaWithFormikPage';
+import PandaDetailsWithHooksPage from '../hooks/PandaDetailsPage';
+import PandasListWithHooksPage from '../hooks/PandasListPage';
+import store from '../../redux/store';
+import history from '../../services/history';
 
 const App: React.FC = () => {
   return (
