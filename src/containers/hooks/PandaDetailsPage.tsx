@@ -7,10 +7,7 @@ import PandaDetails from '../../components/PandaDetails';
 import { AppState } from '../../redux/store';
 import { Panda } from '../../types/Pandas';
 
-const PandaDetailsPage = () => {
-  const history: History = useHistory();
-  const { id } = useParams(); // Récupération du paramètre `id` dans le path
-
+const usePanda = (id: string): Panda | undefined => {
   // On crée un sélecteur avec reselect pour pouvoir filter les pandas ici
   // Le hook useSelector ne peut en effet prendre qu'un seul paramètre : le state en entier
   // Pas terrible ... Doit-on continuer à utiliser connect dans ce cas ?
@@ -20,6 +17,15 @@ const PandaDetailsPage = () => {
     pandas => pandas.find(panda => panda.key === id),
   );
   const panda: Panda | undefined = useSelector(findPanda);
+
+  return panda;
+};
+
+const PandaDetailsPage = () => {
+  const history: History = useHistory();
+  const { id } = useParams(); // Récupération du paramètre `id` dans le path
+
+  const panda = usePanda(id!); // Le ! permet de dire à Typescript qu'on sait ce qu'on fait, cette valeur ne sera jamais nulle !
 
   const handleClose = () => {
     history.replace('/hooks/pandas');
