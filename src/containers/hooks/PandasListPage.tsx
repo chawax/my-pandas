@@ -8,16 +8,48 @@ import pandasSlice from '../../redux/pandas';
 import { getError, getPandas, isFetching } from '../../redux/pandas/selectors';
 import { Panda } from '../../types/Pandas';
 
-const PandasListPage = () => {
+// Hook personnalisé pour charger la liste des pandas et récupérer
+// les flags depuis le store Redux
+const usePandas = () => {
   const dispatch = useDispatch();
-  const pandas: Panda[] = useSelector(getPandas);
-  const fetching: boolean = useSelector(isFetching);
-  const error: Error | undefined = useSelector(getError);
-  const history: History = useHistory();
 
+  // Le hook useEffect permet
   useEffect(() => {
     dispatch(pandasSlice.actions.loadPandasRequest());
   }, []);
+
+  const pandas: Panda[] = useSelector(getPandas);
+  const fetching: boolean = useSelector(isFetching);
+  const error: Error | undefined = useSelector(getError);
+
+  return {
+    pandas,
+    fetching,
+    error,
+  };
+};
+
+type ErrorCardsProps = {
+  error: Error;
+  onRetry(): void;
+};
+
+const ErrorCard = ({ error, onRetry }: ErrorCardsProps) => {
+  return (
+    <div>
+      <Alert color="danger">{error!.message}</Alert>
+      <Button color="secondary" onClick={onRetry}>
+        Réessayer
+      </Button>
+    </div>
+  );
+};
+
+const PandasListPage = () => {
+  const { pandas, fetching, error } = usePandas();
+  const dispatch = useDispatch();
+
+  const history: History = useHistory();
 
   const handleSelectPanda = (key: string) => {
     history.push('/hooks/pandas/' + key);
@@ -35,35 +67,22 @@ const PandasListPage = () => {
     dispatch(pandasSlice.actions.loadPandasRequest());
   };
 
-  const renderError = () => {
-    return (
-      <div>
-        <Alert color="danger">{error!.message}</Alert>
-        <Button color="secondary" onClick={handleRetry}>
-          Réessayer
-        </Button>
-      </div>
-    );
-  };
-
   return (
-    <>
-      <div style={{ padding: 20 }}>
-        {fetching && <Spinner color="primary" />}
-        {error && renderError()}
-        {pandas && (
-          <>
-            <PandasList pandas={pandas} onSelectPanda={handleSelectPanda} />
-            <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithFormik}>
-              Ajouter un panda (avec Formik)
-            </Button>
-            <Button color="secondary" style={{ marginTop: 10 }} onClick={handleHome}>
-              Accueil
-            </Button>
-          </>
-        )}
-      </div>
-    </>
+    <div style={{ padding: 20 }}>
+      {fetching && <Spinner color="primary" />}
+      {error && <ErrorCard error={error} onRetry={handleRetry} />}
+      {pandas && (
+        <>
+          <PandasList pandas={pandas} onSelectPanda={handleSelectPanda} />
+          <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithFormik}>
+            Ajouter un panda (avec Formik)
+          </Button>
+          <Button color="secondary" style={{ marginTop: 10 }} onClick={handleHome}>
+            Accueil
+          </Button>
+        </>
+      )}
+    </div>
   );
 };
 
