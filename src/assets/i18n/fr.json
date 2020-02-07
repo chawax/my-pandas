@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "home": {
+      "hoc": {
+        "heading": "Version avec composants HOC",
+        "text": "Cette version utilise les composants HOC connect, withRouter, reduxForm, etc..."
+      },
+      "hooks": {
+        "heading": "Version avec hooks",
+        "text": "Cette version utilise les hooks pour se connecter à Redux, à React Router DOM, etc...."
+      }
+    }
+  }
+}
