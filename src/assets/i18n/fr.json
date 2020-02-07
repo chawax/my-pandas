@@ -1,5 +1,8 @@
 {
   "translation": {
+    "app": {
+      "title": "Mes pandas"
+    },
     "home": {
       "hoc": {
         "heading": "Version avec composants HOC",

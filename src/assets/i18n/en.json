@@ -1,5 +1,8 @@
 {
   "translation": {
+    "app": {
+      "title": "My pandas"
+    },
     "home": {
       "hoc": {
         "heading": "Version with HOC component",

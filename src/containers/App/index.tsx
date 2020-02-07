@@ -1,8 +1,10 @@
 import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
-import './App.css';
+import store from '../../redux/store';
+import history from '../../services/history';
 import CreatePandaWithHocAndFormikPage from '../hoc/CreatePandaWithFormikPage';
 import CreatePandaWithHocAndReduxFormPage from '../hoc/CreatePandaWithReduxFormPage';
 import PandaDetailsWithHocPage from '../hoc/PandaDetailsPage';
@@ -11,14 +13,14 @@ import Home from '../Home';
 import CreatePandaWithHooksAndFormikPage from '../hooks/CreatePandaWithFormikPage';
 import PandaDetailsWithHooksPage from '../hooks/PandaDetailsPage';
 import PandasListWithHooksPage from '../hooks/PandasListPage';
-import store from '../../redux/store';
-import history from '../../services/history';
+import './App.css';
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <Provider store={store}>
       <h2 className="text-danger" style={{ padding: 10 }}>
-        My pandas
+        {t('app.title')}
       </h2>
       <ConnectedRouter history={history}>
         <Route path="/" exact component={Home} />
