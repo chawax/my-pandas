@@ -13,7 +13,6 @@ import Home from '../Home';
 import CreatePandaWithHooksAndFormikPage from '../hooks/CreatePandaWithFormikPage';
 import PandaDetailsWithHooksPage from '../hooks/PandaDetailsPage';
 import PandasListWithHooksPage from '../hooks/PandasListPage';
-import './App.css';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
