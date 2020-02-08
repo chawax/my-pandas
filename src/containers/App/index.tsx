@@ -1,6 +1,5 @@
 import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -16,15 +15,9 @@ import PandaDetailsWithHooksPage from '../hooks/PandaDetailsPage';
 import PandasListWithHooksPage from '../hooks/PandasListPage';
 
 const App: React.FC = () => {
-  const { i18n } = useTranslation();
   return (
     <Provider store={store}>
-      <Header
-        language={i18n.language}
-        onChangeLanguage={language => {
-          i18n.changeLanguage(language);
-        }}
-      />
+      <Header />
       <ConnectedRouter history={history}>
         <Route path="/" exact component={Home} />
         <Route path="/hoc/pandas" exact component={PandasListWithHocPage} />
