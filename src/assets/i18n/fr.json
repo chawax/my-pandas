@@ -3,6 +3,15 @@
     "app": {
       "title": "Mes pandas"
     },
+    "common": {
+      "submit": "Valider",
+      "cancel": "Annuler",
+      "close": "Fermer",
+      "retry": "Réessayer"
+    },
+    "errors": {
+      "mandatory": "Valeur obligatoire"
+    },
     "home": {
       "hoc": {
         "heading": "Version avec composants HOC",
@@ -11,6 +20,20 @@
       "hooks": {
         "heading": "Version avec hooks",
         "text": "Cette version utilise les hooks pour se connecter à Redux, à React Router DOM, etc...."
+      }
+    },
+    "pandaForm": {
+      "name": {
+        "label": "Nom",
+        "placeholder": "Saisissez le nom du panda"
+      },
+      "interests": {
+        "label": "Centres d'intérêt",
+        "placeholder": "Saisissez les centres d'intérêts, séparés par des virgules"
+      },
+      "image": {
+        "label": "Image",
+        "placeholder": "Saisissez l'url de l'image"
       }
     }
   }
