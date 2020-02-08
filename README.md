@@ -33,6 +33,7 @@ Principaux outils et librairies :
 - [Redux Persist](https://github.com/rt2zz/redux-persist) - Persistence de l'état de l'application
 - [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - Gestion du routage dans l'application
 - [Reactstrap](https://material-ui.com/) - Implémentation React de la librairie de composants Bootstrap
+- [React-i18next](https://react.i18next.com/) - Implémentation React de la librairie d'internationalisation i18next
 - [Axios](https://github.com/axios/axios) - Client HTTP
 - [Storybook](https://storybook.js.org/) - Outil de mise au point des composants
 
