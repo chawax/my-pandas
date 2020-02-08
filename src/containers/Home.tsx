@@ -1,25 +1,23 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
     <ListGroup>
       <ListGroupItem>
         <ListGroupItemHeading>
-          <Link to="/hoc/pandas">Version avec composants HOC</Link>
+          <Link to="/hoc/pandas">{t('home.hoc.heading')}</Link>
         </ListGroupItemHeading>
-        <ListGroupItemText>
-          Cette version utilise les composants HOC connect, withRouter, reduxForm, etc...
-        </ListGroupItemText>
+        <ListGroupItemText>{t('home.hoc.text')}</ListGroupItemText>
       </ListGroupItem>
       <ListGroupItem>
         <ListGroupItemHeading>
-          <Link to="/hooks/pandas">Version avec hooks</Link>
+          <Link to="/hooks/pandas">{t('home.hooks.heading')}</Link>
         </ListGroupItemHeading>
-        <ListGroupItemText>
-          Cette version utilise les hooks pour se connecter à Redux, à React Router DOM, etc....
-        </ListGroupItemText>
+        <ListGroupItemText>{t('home.hooks.text')}</ListGroupItemText>
       </ListGroupItem>
     </ListGroup>
   );
