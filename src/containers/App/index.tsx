@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
+import Header from '../../components/Header';
 import store from '../../redux/store';
 import history from '../../services/history';
 import CreatePandaWithHocAndFormikPage from '../hoc/CreatePandaWithFormikPage';
@@ -15,12 +16,15 @@ import PandaDetailsWithHooksPage from '../hooks/PandaDetailsPage';
 import PandasListWithHooksPage from '../hooks/PandasListPage';
 
 const App: React.FC = () => {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
   return (
     <Provider store={store}>
-      <h2 className="text-danger" style={{ padding: 10 }}>
-        {t('app.title')}
-      </h2>
+      <Header
+        language={i18n.language}
+        onChangeLanguage={language => {
+          i18n.changeLanguage(language);
+        }}
+      />
       <ConnectedRouter history={history}>
         <Route path="/" exact component={Home} />
         <Route path="/hoc/pandas" exact component={PandasListWithHocPage} />
