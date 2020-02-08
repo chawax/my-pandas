@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Alert, Button, Spinner } from 'reactstrap';
@@ -19,7 +20,7 @@ interface PropsFromDispatch {
   loadPandas(): void;
 }
 
-type Props = RouteComponentProps & PropsFromState & PropsFromDispatch;
+type Props = RouteComponentProps & WithTranslation & PropsFromState & PropsFromDispatch;
 
 class PandasListPage extends React.Component<Props> {
   handleSelectPanda = (key: string) => {
@@ -47,19 +48,19 @@ class PandasListPage extends React.Component<Props> {
   };
 
   renderError = () => {
-    const { error } = this.props;
+    const { error, t } = this.props;
     return (
       <div>
         <Alert color="danger">{error!.message}</Alert>
         <Button color="secondary" onClick={this.handleRetry}>
-          Réessayer
+          {t('common.retry')}
         </Button>
       </div>
     );
   };
 
   render() {
-    const { pandas, fetching, error } = this.props;
+    const { pandas, fetching, error, t } = this.props;
     return (
       <>
         <div style={{ padding: 20 }}>
@@ -73,17 +74,17 @@ class PandasListPage extends React.Component<Props> {
                 style={{ marginTop: 10, marginRight: 10 }}
                 onClick={this.handleNewPandaWithReduxForm}
               >
-                Ajouter un panda (avec Redux Form)
+                {t('pandasList.addWithReduxForm')}
               </Button>
               <Button
                 color="primary"
                 style={{ marginTop: 10, marginRight: 10 }}
                 onClick={this.handleNewPandaWithFormik}
               >
-                Ajouter un panda (avec Formik)
+                {t('pandasList.addWithFormik')}
               </Button>
               <Button color="secondary" style={{ marginTop: 10 }} onClick={this.handleHome}>
-                Accueil
+                {t('common.home')}
               </Button>
             </>
           )}
@@ -107,4 +108,4 @@ const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PandasListPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withTranslation()(PandasListPage)));

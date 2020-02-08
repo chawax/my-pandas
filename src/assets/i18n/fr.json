@@ -4,6 +4,7 @@
       "title": "Mes pandas"
     },
     "common": {
+      "home": "Accueil",
       "submit": "Valider",
       "cancel": "Annuler",
       "close": "Fermer",
@@ -35,6 +36,10 @@
         "label": "Image",
         "placeholder": "Saisissez l'url de l'image"
       }
+    },
+    "pandasList": {
+      "addWithFormik": "Ajouter un panda (avec Formik)",
+      "addWithReduxForm": "Ajouter un panda (avec Redux Form)"
     }
   }
 }

@@ -1,5 +1,6 @@
 import { History } from 'history';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Alert, Button, Spinner } from 'reactstrap';
@@ -35,11 +36,12 @@ type ErrorCardsProps = {
 };
 
 const ErrorCard = ({ error, onRetry }: ErrorCardsProps) => {
+  const { t } = useTranslation();
   return (
     <div>
       <Alert color="danger">{error!.message}</Alert>
       <Button color="secondary" onClick={onRetry}>
-        Réessayer
+        {t('common.retry')}
       </Button>
     </div>
   );
@@ -48,8 +50,8 @@ const ErrorCard = ({ error, onRetry }: ErrorCardsProps) => {
 const PandasListPage = () => {
   const { pandas, fetching, error } = usePandas();
   const dispatch = useDispatch();
-
   const history: History = useHistory();
+  const { t } = useTranslation();
 
   const handleSelectPanda = (key: string) => {
     history.push('/hooks/pandas/' + key);
@@ -75,10 +77,10 @@ const PandasListPage = () => {
         <>
           <PandasList pandas={pandas} onSelectPanda={handleSelectPanda} />
           <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithFormik}>
-            Ajouter un panda (avec Formik)
+            {t('pandasList.addWithFormik')}
           </Button>
           <Button color="secondary" style={{ marginTop: 10 }} onClick={handleHome}>
-            Accueil
+            {t('common.home')}
           </Button>
         </>
       )}
