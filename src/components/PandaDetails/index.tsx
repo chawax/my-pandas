@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Badge, Button, Jumbotron } from 'reactstrap';
 import { Panda } from '../../types/Pandas';
 
@@ -8,6 +9,8 @@ interface Props {
 }
 
 const PandaDetails = (props: Props) => {
+  const { t } = useTranslation();
+
   return (
     <Jumbotron>
       <h1>{props.panda.name}</h1>
@@ -22,7 +25,7 @@ const PandaDetails = (props: Props) => {
       </div>
       <div style={{ marginTop: 10 }}>
         <Button color="primary" onClick={props.onClose}>
-          Fermer
+          {t('common.close')}
         </Button>
       </div>
     </Jumbotron>
