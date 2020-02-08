@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Nav, Navbar, NavbarBrand, NavItem } from 'reactstrap';
+import { DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, UncontrolledDropdown } from 'reactstrap';
 
 const languages = ['en', 'fr'];
 
@@ -10,19 +10,23 @@ const Header = () => {
     <Navbar color="dark" dark expand="md">
       <NavbarBrand href="/">{t('app.title')}</NavbarBrand>
       <Nav className="mr-auto" navbar>
-        {languages.map((language, index) => (
-          <>
-            {index > 0 ? ' | ' : null}
-            <NavItem
-              key={language}
-              onClick={() => {
-                i18n.changeLanguage(language);
-              }}
-            >
-              {language.toUpperCase()}
-            </NavItem>
-          </>
-        ))}
+        <UncontrolledDropdown nav inNavbar>
+          <DropdownToggle nav caret>
+            Langue
+          </DropdownToggle>
+          <DropdownMenu right>
+            {languages.map(language => (
+              <DropdownItem
+                key={language}
+                onClick={() => {
+                  i18n.changeLanguage(language);
+                }}
+              >
+                {language.toUpperCase()}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </UncontrolledDropdown>
       </Nav>
     </Navbar>
   );
