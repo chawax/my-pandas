@@ -1,0 +1,45 @@
+{
+  "translation": {
+    "app": {
+      "title": "My pandas"
+    },
+    "common": {
+      "home": "Home",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "close": "Close",
+      "retry": "Retry"
+    },
+    "errors": {
+      "mandatory": "Mandatory value"
+    },
+    "home": {
+      "hoc": {
+        "heading": "Version with HOC component",
+        "text": "This version uses HOC components such as connect, withRouter, reduxForm, etc..."
+      },
+      "hooks": {
+        "heading": "Version width hooks",
+        "text": "This version uses hooks to connect with Redux, React Router DOM, etc...."
+      }
+    },
+    "pandaForm": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Please enter panda name"
+      },
+      "interests": {
+        "label": "Hobbies",
+        "placeholder": "Please enter panda hobbies (comma separated strings)"
+      },
+      "image": {
+        "label": "Image",
+        "placeholder": "Please enter image URL"
+      }
+    },
+    "pandasList": {
+      "addWithFormik": "Add a panda (with Formik)",
+      "addWithReduxForm": "Add a panda (with Redux Form)"
+    }
+  }
+}
