@@ -1,14 +1,14 @@
 {
   "name": "@pandas/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "Olivier Thierry <olivier.thierry@gmail.com>",
   "homepage": "https://github.com/chawax/my-pandas#readme",
   "license": "ISC",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "repository": {
     "type": "git",
