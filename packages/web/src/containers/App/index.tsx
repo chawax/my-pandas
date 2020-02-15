@@ -3,6 +3,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
+
 import Header from '../../components/Header';
 import CreatePandaWithHocAndFormikPage from '../hoc/CreatePandaWithFormikPage';
 import CreatePandaWithHocAndReduxFormPage from '../hoc/CreatePandaWithReduxFormPage';
@@ -17,6 +18,8 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <Header />
+      {/*
+       // @ts-ignore */}
       <ConnectedRouter history={history}>
         <Route path="/" exact component={Home} />
         <Route path="/hoc/pandas" exact component={PandasListWithHocPage} />
