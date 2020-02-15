@@ -4,6 +4,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "target": "es5",
+    "skipLibCheck": true,
     "sourceMap": true
   },
   "exclude": ["node_modules", "dist"]
