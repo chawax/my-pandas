@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { push } from 'connected-react-router';
 import { call, put, select } from 'redux-saga/effects';
-import slice from '../redux/pandas';
+import { slice } from '../redux/pandas';
 import { isHooksEnabled } from '../redux/pandas/selectors';
 import api from '../services/api';
 import { Panda } from '../types/Pandas';

@@ -5,9 +5,9 @@ import { reducer as formReducer } from 'redux-form';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagasMiddleware from 'redux-saga';
-import rootSaga from '../sagas';
+import { rootSaga } from '../sagas';
 import history from '../services/history';
-import pandasSlice from './pandas';
+import { slice as pandasSlice } from './pandas';
 
 // Création du root reducer
 const rootReducer = combineReducers({
@@ -31,7 +31,7 @@ const initialState = {};
 const sagaMiddleware = createSagasMiddleware();
 
 // Création du store Redux
-const store = configureStore({
+export const store = configureStore({
   reducer: persistedReducer,
   middleware: [sagaMiddleware, routerMiddleware(history)],
   devTools: process.env.NODE_ENV !== 'production',
@@ -46,5 +46,3 @@ export type AppState = ReturnType<typeof rootReducer>;
 
 // Export du persistor Redux Persist
 export const persistor = persistStore(store);
-
-export default store;

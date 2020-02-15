@@ -20,7 +20,7 @@ const initialState: State = {
 // Export du slice Redux Toolkit
 // Immer est utilisé en interne
 
-const slice = createSlice({
+export const slice = createSlice({
   name: '@@app/pandas',
   initialState: initialState,
   reducers: {
@@ -58,5 +58,3 @@ const slice = createSlice({
     },
   },
 });
-
-export default slice;

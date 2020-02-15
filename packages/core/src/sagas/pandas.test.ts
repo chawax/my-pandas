@@ -2,7 +2,7 @@ import { push } from 'connected-react-router';
 import { Action } from 'redux';
 import { runSaga } from 'redux-saga';
 import sinon, { SinonSandbox, SinonStub } from 'sinon';
-import slice from '../redux/pandas';
+import { slice } from '../redux/pandas';
 import api from '../services/api';
 import { Panda } from '../types/Pandas';
 import { createPanda, loadPandas } from './pandas';

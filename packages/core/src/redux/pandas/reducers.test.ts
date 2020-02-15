@@ -1,6 +1,6 @@
 import pandas from '../../pandas';
 import { Panda } from '../../types/Pandas';
-import slice, { State as PandasState } from './index';
+import { slice, State as PandasState } from './index';
 
 describe('loadPandas', () => {
   const {

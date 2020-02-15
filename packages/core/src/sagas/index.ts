@@ -1,10 +1,12 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import pandasSlice from '../redux/pandas';
+import { slice } from '../redux/pandas';
 import { createPanda, loadPandas } from './pandas';
 
-export default function* rootSaga() {
+export function* rootSaga() {
   yield all([
-    takeLatest(pandasSlice.actions.loadPandasRequest, loadPandas),
-    takeLatest(pandasSlice.actions.createPandaRequest, createPanda),
+    takeLatest(slice.actions.loadPandasRequest, loadPandas),
+    takeLatest(slice.actions.createPandaRequest, createPanda),
   ]);
 }
+
+export * from './pandas';
