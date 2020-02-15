@@ -4,8 +4,7 @@
     "baseUrl": "./packages",
     "paths": {
       "@pandas/core": ["core/src"],
-      "@pandas/web": ["web/src"],
-      "@pandas/*": ["*/src"]
+      "@pandas/web": ["web/src"]
     }
   }
 }
