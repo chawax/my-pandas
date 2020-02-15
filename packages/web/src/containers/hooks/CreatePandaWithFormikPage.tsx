@@ -1,9 +1,9 @@
+import { slice as pandasSlice } from '@pandas/core';
 import { History } from 'history';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaFormik';
-import pandasSlice from '@pandas/core/src/redux/pandas';
 
 const CreatePandaWithFormikPage = () => {
   const dispatch = useDispatch();

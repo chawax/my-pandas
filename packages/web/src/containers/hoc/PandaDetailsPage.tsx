@@ -1,5 +1,4 @@
-import { AppState, Panda } from '@pandas/core';
-import { findPanda } from '@pandas/core/src/redux/pandas/selectors';
+import { AppState, findPanda, Panda } from '@pandas/core';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';

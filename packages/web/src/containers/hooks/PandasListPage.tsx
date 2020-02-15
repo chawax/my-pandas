@@ -1,6 +1,4 @@
-import { Panda } from '@pandas/core';
-import pandasSlice from '@pandas/core/src/redux/pandas';
-import { getError, getPandas, isFetching } from '@pandas/core/src/redux/pandas/selectors';
+import { getError, getPandas, isFetching, Panda, slice as pandasSlice } from '@pandas/core';
 import { History } from 'history';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';

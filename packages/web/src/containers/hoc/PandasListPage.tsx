@@ -1,6 +1,4 @@
-import { AppState, Panda } from '@pandas/core';
-import pandasSlice from '@pandas/core/src/redux/pandas';
-import { getError, getPandas, isFetching } from '@pandas/core/src/redux/pandas/selectors';
+import { AppState, getError, getPandas, isFetching, Panda, slice as pandasSlice } from '@pandas/core';
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
