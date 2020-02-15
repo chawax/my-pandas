@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "json-server": "0.15.1",
-    "lerna": "^3.20.2",
+    "lerna": "3.20.2",
     "typescript": "3.7.5"
   }
 }
