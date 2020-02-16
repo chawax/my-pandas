@@ -1,9 +1,9 @@
 {
   "name": "@pandas/web",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@pandas/core": "^0.1.0",
+    "@pandas/core": "^0.2.0",
     "@reduxjs/toolkit": "1.0.4",
     "axios": "0.19.0",
     "bootstrap": "4.4.1",
