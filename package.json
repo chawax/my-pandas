@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "clean": "lerna run clean",
+    "clean": "lerna clean",
     "build": "lerna run build",
     "publish": "lerna publish",
     "start": "cd packages/web && npm start",
-    "test": "lerna test",
+    "storybook": "cd packages/web && npm run storybook",
+    "test": "lerna run test",
     "json-server": "./node_modules/.bin/json-server --watch ./json-server/db.json --port 3004 --id key"
   },
   "eslintConfig": {
@@ -16,7 +17,6 @@
   },
   "devDependencies": {
     "json-server": "0.15.1",
-    "lerna": "3.20.2",
-    "typescript": "3.7.5"
+    "lerna": "3.20.2"
   }
 }
