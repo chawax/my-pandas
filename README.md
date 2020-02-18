@@ -4,8 +4,11 @@ Application de démo React JS.
 
 Cette application est constituée d'une liste de pandas, d'un écran de détail et d'un formulaire de création.
 
+Elle est hébergée sur un monorepo géré par Lerna.
+
 Elle permet de démontrer :
 
+- L'utilisation d'un monorepo Lerna
 - Les bases d'un projet React
 - L'utilisation de Typescript dans un projet React
 - La gestion de l'état avec Redux, en utilisant le composant HOC connect ou les hooks.
@@ -22,6 +25,7 @@ Ce projet a été démarré avec [Create React App](https://github.com/facebook/
 Principaux outils et librairies :
 
 - [React JS](https://reactjs.org/)
+- [Lerna](https://lerna.js.org/) - Outil de gestion de monorepo
 - [Typescript](https://www.typescriptlang.org/) - Librairie de typage
 - [React Scripts](https://www.npmjs.com/package/react-scripts) - Ensemble de scripts NPM pour les opérations sur le projet
 - [Redux](https://redux.js.org/) - Gestion de l'état de l'application
@@ -37,7 +41,14 @@ Principaux outils et librairies :
 - [Axios](https://github.com/axios/axios) - Client HTTP
 - [Storybook](https://storybook.js.org/) - Outil de mise au point des composants
 
-Pour les versions des différents outils et librairies consulter le fichier `package.json`.
+Pour les versions des différents outils et librairies consulter les fichiers `package.json` des différents packages.
+
+## Packages du monorepo
+
+Le monorepo Lerna est composé de deux packages :
+
+- `web` : une application web générée avec [Create React App](https://github.com/facebook/create-react-app)
+- `core` : un projet regroupant les reducers Redux, les sagas, les services, etc... C'est une dépendance du package `web`
 
 ## Comment installer l'application
 
@@ -45,11 +56,18 @@ Pour les versions des différents outils et librairies consulter le fichier `pac
 
 - Cloner le repository.
 
-- Exécuter la commande suivante :
+- Installer Lerna :
 
-```
-npm install
-```
+  ```
+  npm install -g lerna
+  ```
+
+- Initialiser le monorepo Lerna :
+
+  ```
+  npm run clean
+  npm run bootstrap
+  ```
 
 ## Comment démarrer le serveur de mock
 
@@ -71,6 +89,16 @@ npm start
 
 L'application est alors accessible sur l'adresse `http://localhost:3000`.
 
+## Commment "builder" l'application
+
+Pour faire un build de l'application :
+
+```
+npm run build
+```
+
+Cette commande utilise la commande `lerna` pour appeler la commande `npm build` pour chaque package du monorepo.
+
 ## Comment lancer Storybook
 
 Storybook permet de tester et mettre au point les composants visuels hors de l'application.
@@ -81,22 +109,24 @@ Pour lancer Storybook :
 npm run storybook
 ```
 
-Cette commande lance Storybook en recherchant les stories définies dans des fichiers portant l'extension `.stories.tsx`.
+Cette commande lance Storybook depuis le package `web` en recherchant les stories définies dans des fichiers portant l'extension `.stories.tsx`.
 
 ## Comment lancer les tests unitaires
 
 Pour lancer les tests unitaires :
 
 ```
-npm test
+npm run test
 ```
 
-Cette commande lance les tests unitaires en mode `watch`. Dans ce cas seuls les tests unitaires concernant des fichiers modifiés sont réexécutés. L'utilisateur dispose également de raccourcis pour relancer l'ensemble des tests, filtrer les tests à exécuter, etc...
+Cette commande lance les tests unitaires en désactivant le mode `watch`.
 
-Pour lancer les tests unitaires en désactivant le mode `watch` :
+Le mode watch permet de n'exécuter les tests unitaires que pour les fichiers modifiés. L'utilisateur dispose également de raccourcis pour relancer l'ensemble des tests, filtrer les tests à exécuter, etc...
+
+Pour lancer les tests unitaires en activant le mode `watch`, se placer dans le package concerné et exécuter la commande suivante :
 
 ```
-npm test -- --watchAll=false
+npm run test:watch
 ```
 
 > Attention : le mode watch de Jest ne fonctionne pas correctement si on le lance depuis Git Bash sous Windows. Pour utiliser le mode watch sous Windows il faut lancer les tests depuis l'invite de commandes standard de Windows.
@@ -105,11 +135,13 @@ npm test -- --watchAll=false
 
 La commande `npm audit` permet de contrôler les dépendances de l'application et fournit un rapport listant les vulnérabilités des librairies référencées par le projet. L'outil s'appuie sur la base gérée par l'organisme OWASP pour identifier les dépendances problématiques.
 
+Pour chaque package lancer la commande :
+
 ```
 npm audit
 ```
 
-Pour mettre à jour automatiquement les dépendances lancer la commande :
+Pour mettre à jour automatiquement les dépendances, se positionner dans le package concerné et lancer la commande :
 
 ```
 npm audit fix
