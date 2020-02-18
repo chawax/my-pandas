@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "private": true,
   "dependencies": {
-    "@pandas/core": "^0.3.0",
+    "@pandas/core": "0.3.0",
     "@reduxjs/toolkit": "1.0.4",
     "axios": "0.19.0",
     "bootstrap": "4.4.1",
@@ -26,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"

@@ -18,7 +18,8 @@
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
     "compile": "tsc -p tsconfig.build.json",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll=true"
   },
   "bugs": {
     "url": "https://github.com/chawax/my-pandas/issues"
