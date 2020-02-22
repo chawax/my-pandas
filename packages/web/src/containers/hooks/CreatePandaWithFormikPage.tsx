@@ -3,7 +3,7 @@ import { History } from 'history';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaFormik';
+import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaWithFormik';
 
 const CreatePandaWithFormikPage = () => {
   const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Dispatch } from 'redux';
-import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaFormik';
+import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaWithFormik';
 
 interface PropsFromState {}
 
