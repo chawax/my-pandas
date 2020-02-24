@@ -2,7 +2,7 @@ import { slice as pandasSlice } from '@pandas/core';
 import { History } from 'history';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaWithReactHookForm';
 
 const CreatePandaWithReactHookFormPage = () => {
