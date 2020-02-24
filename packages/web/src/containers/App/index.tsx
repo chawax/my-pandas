@@ -11,6 +11,7 @@ import PandaDetailsWithHocPage from '../hoc/PandaDetailsPage';
 import PandasListWithHocPage from '../hoc/PandasListPage';
 import Home from '../Home';
 import CreatePandaWithHooksAndFormikPage from '../hooks/CreatePandaWithFormikPage';
+import CreatePandaWithHooksAndReactHookFormPage from '../hooks/CreatePandaWithReactHookFormPage';
 import PandaDetailsWithHooksPage from '../hooks/PandaDetailsPage';
 import PandasListWithHooksPage from '../hooks/PandasListPage';
 
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <Route path="/hooks/pandas" exact component={PandasListWithHooksPage} />
         <Route path="/hooks/pandas/:id" component={PandaDetailsWithHooksPage} />
         <Route path="/hooks/createPandaWithFormik" component={CreatePandaWithHooksAndFormikPage} />
+        <Route path="/hooks/createPandaWithReactHookForm" component={CreatePandaWithHooksAndReactHookFormPage} />
       </ConnectedRouter>
     </Provider>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 import CreatePandaFormik from '.';
 
 export default {
-  title: 'CreatePandaFormik',
+  title: 'CreatePandaWithFormik',
 };
 
 export const creationForm = () => {

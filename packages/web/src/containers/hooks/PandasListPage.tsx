@@ -3,7 +3,7 @@ import { History } from 'history';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { Alert, Button, Spinner } from 'reactstrap';
 import PandasList from '../../components/PandasList';
 
@@ -59,6 +59,10 @@ const PandasListPage = () => {
     history.push('/hooks/createPandaWithFormik');
   };
 
+  const handleNewPandaWithReactHookForm = () => {
+    history.push('/hooks/createPandaWithReactHookForm');
+  };
+
   const handleHome = () => {
     history.replace('/');
   };
@@ -76,6 +80,9 @@ const PandasListPage = () => {
           <PandasList pandas={pandas} onSelectPanda={handleSelectPanda} />
           <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithFormik}>
             {t('pandasList.addWithFormik')}
+          </Button>
+          <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithReactHookForm}>
+            {t('pandasList.addWithReactHookForm')}
           </Button>
           <Button color="secondary" style={{ marginTop: 10 }} onClick={handleHome}>
             {t('common.home')}

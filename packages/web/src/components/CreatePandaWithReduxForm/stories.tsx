@@ -6,7 +6,7 @@ import { reducer as formReducer } from 'redux-form';
 import CreatePandaForm from '.';
 
 export default {
-  title: 'CreatePandaForm',
+  title: 'CreatePandaWithReduxForm',
 };
 
 const buildFormDecoratorStore = () => {

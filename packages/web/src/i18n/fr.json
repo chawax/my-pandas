@@ -39,7 +39,8 @@
     },
     "pandasList": {
       "addWithFormik": "Ajouter un panda (avec Formik)",
-      "addWithReduxForm": "Ajouter un panda (avec Redux Form)"
+      "addWithReduxForm": "Ajouter un panda (avec Redux Form)",
+      "addWithReactHookForm": "Ajouter un panda (avec React Hook Form)"
     }
   }
 }

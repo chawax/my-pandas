@@ -3,9 +3,9 @@ import { History } from 'history';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaWithFormik';
+import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaWithReactHookForm';
 
-const CreatePandaWithFormikPage = () => {
+const CreatePandaWithReactHookFormPage = () => {
   const dispatch = useDispatch();
   const history: History = useHistory();
 
@@ -31,4 +31,4 @@ const CreatePandaWithFormikPage = () => {
   );
 };
 
-export default CreatePandaWithFormikPage;
+export default CreatePandaWithReactHookFormPage;
