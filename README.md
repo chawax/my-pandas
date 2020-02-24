@@ -15,7 +15,7 @@ Elle permet de démontrer :
 - La simplification de l'utilisation de Redux avec Redux Toolkit
 - La persistence de l'état avec Redux Persist
 - La gestion des effets de bord avec Redux Saga
-- La gestion des formulaires avec Redux Form et avec Formik
+- La gestion des formulaires avec Redux Form, Formik et React Hook Form
 - La gestion de la navigation avec React Router DOM
 - L'utilisation de Storybook pour mettre au point des composants
 - L'écriture de tests unitaires
@@ -33,7 +33,8 @@ Principaux outils et librairies :
 - [Immer](https://immerjs.github.io/immer/) - Librairie pour faciliter l'application de l'immutabilité (implicitement utilisé par Redux Toolkit)
 - [Redux Saga](https://github.com/redux-saga/redux-saga) - Gestion des effets de bord
 - [Redux Form](https://redux-form.com/) - Gestion des formulaires
-- [Formik](https://jaredpalmer.com/formik) - Gestion des formulaires (librairie alternative)
+- [Formik](https://jaredpalmer.com/formik) - Gestion des formulaires
+- [React Hook Form](https://react-hook-form.com/) - Gestion des formulaires
 - [Redux Persist](https://github.com/rt2zz/redux-persist) - Persistence de l'état de l'application
 - [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - Gestion du routage dans l'application
 - [Reactstrap](https://material-ui.com/) - Implémentation React de la librairie de composants Bootstrap
