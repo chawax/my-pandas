@@ -59,6 +59,10 @@ const PandasListPage = () => {
     history.push('/hooks/createPandaWithFormik');
   };
 
+  const handleNewPandaWithReactHookForm = () => {
+    history.push('/hooks/createPandaWithReactHookForm');
+  };
+
   const handleHome = () => {
     history.replace('/');
   };
@@ -76,6 +80,9 @@ const PandasListPage = () => {
           <PandasList pandas={pandas} onSelectPanda={handleSelectPanda} />
           <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithFormik}>
             {t('pandasList.addWithFormik')}
+          </Button>
+          <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithReactHookForm}>
+            {t('pandasList.addWithReactHookForm')}
           </Button>
           <Button color="secondary" style={{ marginTop: 10 }} onClick={handleHome}>
             {t('common.home')}
