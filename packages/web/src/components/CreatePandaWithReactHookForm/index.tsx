@@ -17,33 +17,20 @@ interface Props {
 }
 
 const CreatePandaForm = (props: Props) => {
-  const { t } = useTranslation();
-
-  // const validate = (values: FormValues) => {
-  //   const errors: FormikErrors<FormValues> = {};
-  //   if (!values.name) {
-  //     errors.name = t('errors.mandatory');
-  //   }
-  //   if (!values.interests) {
-  //     errors.interests = t('errors.mandatory');
-  //   }
-  //   if (!values.image) {
-  //     errors.image = t('errors.mandatory');
-  //   }
-  //   return errors;
-  // };
-
   const { onCancel, initialValues } = props;
+
+  const { t } = useTranslation();
 
   const { register, handleSubmit, errors, formState } = useForm<FormValues>({
     mode: 'onChange',
     defaultValues: initialValues,
   });
   const { isValid } = formState;
+
   return (
     <form noValidate onSubmit={handleSubmit(props.onSubmit)}>
       <ReactHookFormInput
-        innerRef={register({ required: true })}
+        innerRef={register({ required: { value: true, message: t('errors.mandatory') } })}
         name="name"
         label={t('pandaForm.name.label')}
         type="text"
@@ -51,7 +38,7 @@ const CreatePandaForm = (props: Props) => {
         error={errors.name}
       />
       <ReactHookFormInput
-        innerRef={register({ required: true })}
+        innerRef={register({ required: { value: true, message: t('errors.mandatory') } })}
         name="interests"
         label={t('pandaForm.interests.label')}
         type="text"
@@ -59,7 +46,7 @@ const CreatePandaForm = (props: Props) => {
         error={errors.interests}
       />
       <ReactHookFormInput
-        innerRef={register({ required: true })}
+        innerRef={register({ required: { value: true, message: t('errors.mandatory') } })}
         name="image"
         label={t('pandaForm.image.label')}
         type="text"
