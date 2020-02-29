@@ -1,9 +1,11 @@
+import { withA11y } from '@storybook/addon-a11y';
 import { Formik } from 'formik';
 import React from 'react';
 import FormikInput from '.';
 
 export default {
   title: 'Design System|FormikInput',
+  decorators: [withA11y],
 };
 
 export const noInitialValue = () => {
