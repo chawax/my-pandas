@@ -63,11 +63,11 @@
     "@types/reactstrap": "8.0.6",
     "@types/redux-form": "8.2.0",
     "@types/sinon": "7.5.0",
-    "babel-loader": "8.0.6",
-    "react-scripts": "3.3.0",
+    "babel-loader": "8.1.0",
+    "react-scripts": "3.4.1",
     "redux-devtools-extension": "2.13.8",
     "sinon": "7.5.0",
     "typescript": "3.7.5",
-    "webpack": "4.41.2"
+    "webpack": "4.42.0"
   }
 }
