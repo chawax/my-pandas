@@ -10,6 +10,7 @@
     "start": "cd packages/web && npm start",
     "storybook": "cd packages/web && npm run storybook",
     "test": "lerna run test",
+    "audit": "lerna-audit",
     "json-server": "./node_modules/.bin/json-server --watch ./json-server/db.json --port 3004 --id key"
   },
   "eslintConfig": {
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "json-server": "0.15.1",
-    "lerna": "3.20.2"
+    "lerna": "3.20.2",
+    "lerna-audit": "1.1.1"
   }
 }

@@ -136,14 +136,25 @@ npm run test:watch
 
 La commande `npm audit` permet de contrôler les dépendances de l'application et fournit un rapport listant les vulnérabilités des librairies référencées par le projet. L'outil s'appuie sur la base gérée par l'organisme OWASP pour identifier les dépendances problématiques.
 
-Pour chaque package lancer la commande :
+Dans le contexte de Lerna, cette commande échoue avec une erreur de ce type :
 
 ```
-npm audit
+npm ERR! code ELOCKVERIFY
+npm ERR! Errors were found in your package-lock.json, run  npm install  to fix them.
+npm ERR!     Missing: mypackage@1.0.0
 ```
 
-Pour mettre à jour automatiquement les dépendances, se positionner dans le package concerné et lancer la commande :
+Cette erreur est liée au fait que `npm audit` s'appuie sur le fichier `package-lock.json` pour identifier les version de paquets à vérifier. Mais les dépendances internes ne sont pas présentes dans ce fichier `package.json` alors qu'elle le sont dans le fichier `package-lock.json`. Une incohérence qui déclenche l'erreur ci-dessus.
 
-```
-npm audit fix
-```
+Pour contourner cette erreur on peut utiliser le paquet NPM `lerna-audit`. Pour chaque package du projet, cette commande :
+
+- Modifie le fichier `package.json` pour supprimer les dépendances internes au monorepo
+- Exécute la commande `npm audit`
+- Fixe les éventuels problèmes rencontrés (commande `npm audit fix`)
+- Restaure le fichier `package.json` d'origine.
+
+> Attention : cette commande fixe automatiquement les problèmes identifiés par `npm audit`
+
+Pour plus d'informations : https://www.npmjs.com/package/lerna-audit
+
+Ce module `lerna-audit` est installé dans le monorepo et peut être lancé avec le script `npm run audit` à la racine du projet.
