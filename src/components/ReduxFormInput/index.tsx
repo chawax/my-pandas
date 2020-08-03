@@ -28,15 +28,7 @@ const ReduxFormInputText = (props: Props) => {
   return (
     <FormGroup>
       <Label for={name}>{label}</Label>
-      <Input
-        type="text"
-        name={name}
-        id={name}
-        placeholder={placeholder}
-        required={required}
-        className={className}
-        {...input}
-      />
+      <Input type="text" id={name} placeholder={placeholder} required={required} className={className} {...input} />
       {touched && error && <div className="invalid-feedback">{error}</div>}
     </FormGroup>
   );

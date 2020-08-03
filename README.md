@@ -4,11 +4,8 @@ Application de démo React JS.
 
 Cette application est constituée d'une liste de pandas, d'un écran de détail et d'un formulaire de création.
 
-Elle est hébergée sur un monorepo géré par Lerna.
-
 Elle permet de démontrer :
 
-- L'utilisation d'un monorepo Lerna
 - Les bases d'un projet React
 - L'utilisation de Typescript dans un projet React
 - La gestion de l'état avec Redux, en utilisant le composant HOC connect ou les hooks.
@@ -25,7 +22,6 @@ Ce projet a été démarré avec [Create React App](https://github.com/facebook/
 Principaux outils et librairies :
 
 - [React JS](https://reactjs.org/)
-- [Lerna](https://lerna.js.org/) - Outil de gestion de monorepo
 - [Typescript](https://www.typescriptlang.org/) - Librairie de typage
 - [React Scripts](https://www.npmjs.com/package/react-scripts) - Ensemble de scripts NPM pour les opérations sur le projet
 - [Redux](https://redux.js.org/) - Gestion de l'état de l'application
@@ -44,30 +40,16 @@ Principaux outils et librairies :
 
 Pour les versions des différents outils et librairies consulter les fichiers `package.json` des différents packages.
 
-## Packages du monorepo
-
-Le monorepo Lerna est composé de deux packages :
-
-- `web` : une application web générée avec [Create React App](https://github.com/facebook/create-react-app)
-- `core` : un projet regroupant les reducers Redux, les sagas, les services, etc... C'est une dépendance du package `web`
-
 ## Comment installer l'application
 
 - Node JS et NPM doivent être installés sur la machine de développement.
 
 - Cloner le repository.
 
-- Installer Lerna :
+- Exécuter la commande suivante :
 
   ```
-  npm install -g lerna
-  ```
-
-- Initialiser le monorepo Lerna :
-
-  ```
-  npm run clean
-  npm run bootstrap
+  npm install
   ```
 
 ## Comment démarrer le serveur de mock
@@ -98,8 +80,6 @@ Pour faire un build de l'application :
 npm run build
 ```
 
-Cette commande utilise la commande `lerna` pour appeler la commande `npm build` pour chaque package du monorepo.
-
 ## Comment lancer Storybook
 
 Storybook permet de tester et mettre au point les composants visuels hors de l'application.
@@ -110,14 +90,14 @@ Pour lancer Storybook :
 npm run storybook
 ```
 
-Cette commande lance Storybook depuis le package `web` en recherchant les stories définies dans des fichiers portant l'extension `.stories.tsx`.
+Cette commande lance Storybook en recherchant les stories définies dans des fichiers portant l'extension `.stories.tsx`.
 
 ## Comment lancer les tests unitaires
 
 Pour lancer les tests unitaires :
 
 ```
-npm run test
+npm test
 ```
 
 Cette commande lance les tests unitaires en désactivant le mode `watch`.
@@ -136,25 +116,6 @@ npm run test:watch
 
 La commande `npm audit` permet de contrôler les dépendances de l'application et fournit un rapport listant les vulnérabilités des librairies référencées par le projet. L'outil s'appuie sur la base gérée par l'organisme OWASP pour identifier les dépendances problématiques.
 
-Dans le contexte de Lerna, cette commande échoue avec une erreur de ce type :
-
 ```
-npm ERR! code ELOCKVERIFY
-npm ERR! Errors were found in your package-lock.json, run  npm install  to fix them.
-npm ERR!     Missing: mypackage@1.0.0
+npm audit
 ```
-
-Cette erreur est liée au fait que `npm audit` s'appuie sur le fichier `package-lock.json` pour identifier les version de paquets à vérifier. Mais les dépendances internes ne sont pas présentes dans ce fichier `package.json` alors qu'elle le sont dans le fichier `package-lock.json`. Une incohérence qui déclenche l'erreur ci-dessus.
-
-Pour contourner cette erreur on peut utiliser le paquet NPM `lerna-audit`. Pour chaque package du projet, cette commande :
-
-- Modifie le fichier `package.json` pour supprimer les dépendances internes au monorepo
-- Exécute la commande `npm audit`
-- Fixe les éventuels problèmes rencontrés (commande `npm audit fix`)
-- Restaure le fichier `package.json` d'origine.
-
-> Attention : cette commande fixe automatiquement les problèmes identifiés par `npm audit`
-
-Pour plus d'informations : https://www.npmjs.com/package/lerna-audit
-
-Ce module `lerna-audit` est installé dans le monorepo et peut être lancé avec le script `npm run audit` à la racine du projet.

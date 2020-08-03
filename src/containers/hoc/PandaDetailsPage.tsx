@@ -1,8 +1,9 @@
-import { AppState, findPanda, Panda } from '@pandas/core';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import PandaDetails from '../../components/PandaDetails';
+import { AppState, findPanda } from '../../redux';
+import { Panda } from '../../types';
 
 interface PropsFromState {
   panda: Panda | undefined;

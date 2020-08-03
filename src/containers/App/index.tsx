@@ -1,10 +1,10 @@
-import { history, store } from '@pandas/core';
 import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
-
 import Header from '../../components/Header';
+import { store } from '../../redux';
+import history from '../../services/history';
 import CreatePandaWithHocAndFormikPage from '../hoc/CreatePandaWithFormikPage';
 import CreatePandaWithHocAndReduxFormPage from '../hoc/CreatePandaWithReduxFormPage';
 import PandaDetailsWithHocPage from '../hoc/PandaDetailsPage';
