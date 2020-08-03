@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Badge, Button, Jumbotron } from 'reactstrap';
-import { Panda } from '@pandas/core';
+import { Panda } from '../../types';
 
 interface Props {
   panda: Panda;

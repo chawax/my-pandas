@@ -1,4 +1,3 @@
-import { AppState, getError, getPandas, isFetching, Panda, slice as pandasSlice } from '@pandas/core';
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
@@ -6,6 +5,8 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { Alert, Button, Spinner } from 'reactstrap';
 import { Dispatch } from 'redux';
 import PandasList from '../../components/PandasList';
+import { AppState, getError, getPandas, isFetching, slice as pandasSlice } from '../../redux';
+import { Panda } from '../../types';
 
 interface PropsFromState {
   pandas: Panda[];

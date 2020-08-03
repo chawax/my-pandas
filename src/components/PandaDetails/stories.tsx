@@ -1,13 +1,14 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 import PandaDetails from '.';
+import { Panda } from '../../types';
 
 export default {
   title: 'PandaDetails',
 };
 
 export const sansCentresInteret = () => {
-  const panda = {
+  const panda: Panda = {
     key: '1',
     name: 'Yuan Meng',
     image: 'https://media.giphy.com/media/EatwJZRUIv41G/giphy-downsized.gif',

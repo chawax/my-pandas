@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'reactstrap';
-import { Panda } from '@pandas/core';
+import { Panda } from '../../types';
 import PandaItem from '../PandaItem';
 
 interface Props {

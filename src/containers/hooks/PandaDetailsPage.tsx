@@ -1,10 +1,11 @@
-import { AppState, Panda } from '@pandas/core';
 import { History } from 'history';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { createSelector } from 'reselect';
 import PandaDetails from '../../components/PandaDetails';
+import { AppState } from '../../redux';
+import { Panda } from '../../types';
 
 const usePanda = (id: string): Panda | undefined => {
   // On crée un sélecteur avec reselect pour pouvoir filter les pandas ici
@@ -13,7 +14,7 @@ const usePanda = (id: string): Panda | undefined => {
   // Ou est-ce une mauvaise pratique de passer un paramètre à un sélecteur ?
   const findPanda = createSelector(
     (state: AppState) => state.pandas.data,
-    pandas => pandas.find(panda => panda.key === id),
+    (pandas) => pandas.find((panda) => panda.key === id),
   );
   const panda: Panda | undefined = useSelector(findPanda);
 

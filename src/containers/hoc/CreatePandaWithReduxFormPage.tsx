@@ -1,9 +1,10 @@
-import { AppState, Panda, slice as pandasSlice } from '@pandas/core';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { Dispatch } from 'redux';
-import CreatePandaForm, { FormValues as PandaFormValues } from '../../components/CreatePandaWithFormik';
+import CreatePandaForm, { FormData as CreatePandaFormData } from '../../components/CreatePandaWithReduxForm';
+import { AppState, slice as pandasSlice } from '../../redux';
+import { Panda } from '../../types';
 
 interface PropsFromState {}
 
@@ -13,12 +14,12 @@ interface PropsFromDispatch {
 
 type Props = RouteComponentProps & PropsFromState & PropsFromDispatch;
 
-class CreatePandaWithFormikPage extends React.Component<Props> {
+class CreatePandaWithReduxFormPage extends React.Component<Props> {
   handleCancel = () => {
     this.props.history.replace('/hoc/pandas');
   };
 
-  handleSubmit = (values: PandaFormValues) => {
+  handleSubmit = (values: CreatePandaFormData) => {
     const panda = {
       name: values.name,
       interests: values.interests.split(','),
@@ -48,4 +49,4 @@ const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CreatePandaWithFormikPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CreatePandaWithReduxFormPage));

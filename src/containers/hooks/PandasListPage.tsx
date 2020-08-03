@@ -1,4 +1,3 @@
-import { getError, getPandas, isFetching, Panda, slice as pandasSlice } from '@pandas/core';
 import { History } from 'history';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Alert, Button, Spinner } from 'reactstrap';
 import PandasList from '../../components/PandasList';
+import { getError, getPandas, isFetching, slice as pandasSlice } from '../../redux';
+import { Panda } from '../../types';
 
 // Hook personnalisé pour charger la liste des pandas et récupérer
 // les flags depuis le store Redux
