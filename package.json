@@ -21,7 +21,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "connected-react-router": "6.7.0",
-    "formik": "2.0.4",
+    "formik": "^2.1.5",
     "i18next": "19.1.0",
     "react": "16.11.0",
     "react-dom": "16.11.0",
