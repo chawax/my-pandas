@@ -53,13 +53,11 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/reactstrap": "^8.5.0",
     "@types/redux-form": "^8.2.7",
-    "@types/sinon": "^7.5.2",
     "babel-loader": "^8.1.0",
     "jest": "^24.9.0",
     "json-server": "^0.16.1",
     "react-scripts": "^3.4.1",
     "redux-devtools-extension": "^2.13.8",
-    "sinon": "^7.5.0",
     "typescript": "^3.9.7",
     "webpack": "4.42.0"
   },

@@ -1,7 +1,6 @@
 import { push } from 'connected-react-router';
 import { Action } from 'redux';
 import { runSaga } from 'redux-saga';
-import sinon, { SinonSandbox, SinonStub } from 'sinon';
 import { slice } from '../redux/pandas';
 import api from '../services/api';
 import { Panda } from '../types/Pandas';
@@ -27,14 +26,21 @@ describe('loadPandas', () => {
     },
   ];
 
-  let sandbox: SinonSandbox;
-  beforeEach(() => (sandbox = sinon.createSandbox()));
-  afterEach(() => sandbox.restore());
+  // Mock de api.loadPandas
+
+  let mockLoadPandas: jest.SpyInstance<any>;
+  beforeEach(() => {
+    mockLoadPandas = jest.spyOn(api, 'loadPandas');
+  });
+  afterEach(() => {
+    // On fait un reset pour que les compteurs d'appel soient remis à zéro
+    mockLoadPandas.mockReset();
+  });
 
   it('api call was successful', async () => {
     // Mock de l'API
 
-    const apiStub: SinonStub = sandbox.stub(api, 'loadPandas').resolves(pandas);
+    mockLoadPandas.mockResolvedValueOnce(pandas);
 
     // Configuration et exécution de la saga
 
@@ -45,6 +51,7 @@ describe('loadPandas', () => {
       dispatch: (a: Action) => dispatched.push(a),
       getState: () => state,
     };
+
     // FIXME
     // @ts-ignore
     await runSaga(sagaConfig, loadPandas, api, action);
@@ -55,14 +62,14 @@ describe('loadPandas', () => {
 
     // Contrôle des appels d'API
 
-    expect(apiStub.calledOnce).toBeTruthy();
+    expect(mockLoadPandas).toHaveBeenCalledTimes(1);
   });
 
   it('api call failed', async () => {
     // Mock de l'API
 
     const error = new Error('Error for test');
-    const apiStub: SinonStub = sandbox.stub(api, 'loadPandas').rejects(error);
+    mockLoadPandas.mockRejectedValueOnce(error);
 
     // Configuration et exécution de la saga
 
@@ -73,6 +80,7 @@ describe('loadPandas', () => {
       dispatch: (a: Action) => dispatched.push(a),
       getState: () => state,
     };
+
     // FIXME
     // @ts-ignore
     await runSaga(sagaConfig, loadPandas, api, action);
@@ -83,7 +91,7 @@ describe('loadPandas', () => {
 
     // Contrôle des appels d'API
 
-    expect(apiStub.calledOnce).toBeTruthy();
+    expect(mockLoadPandas).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -98,9 +106,15 @@ describe('createPanda', () => {
     interests: ['yoga', 'bambou'],
   };
 
-  let sandbox: SinonSandbox;
-  beforeEach(() => (sandbox = sinon.createSandbox()));
-  afterEach(() => sandbox.restore());
+  // Mock de api.createPanda
+
+  let mockCreatePanda: jest.SpyInstance<any>;
+  beforeEach(() => {
+    mockCreatePanda = jest.spyOn(api, 'createPanda');
+  });
+  afterEach(() => {
+    mockCreatePanda.mockReset();
+  });
 
   it('api call was successful', async () => {
     // Mock de l'API
@@ -109,7 +123,7 @@ describe('createPanda', () => {
       ...newPanda,
       key: 'key',
     };
-    const apiStub = sandbox.stub(api, 'createPanda').resolves(createdPanda);
+    mockCreatePanda.mockResolvedValueOnce(createdPanda);
 
     // Configuration et exécution de la saga
 
@@ -126,6 +140,7 @@ describe('createPanda', () => {
       dispatch: (a: Action) => dispatched.push(a),
       getState: () => state,
     };
+
     // FIXME
     // @ts-ignore
     await runSaga(sagaConfig, createPanda, api, action);
@@ -139,14 +154,14 @@ describe('createPanda', () => {
 
     // Contrôle des appels d'API
 
-    expect(apiStub.calledOnce).toBeTruthy();
+    expect(mockCreatePanda).toHaveBeenCalledTimes(1);
   });
 
   it('api call failed', async () => {
     // Mock de l'API
 
     const error = new Error('Error for test');
-    const apiStub: SinonStub = sandbox.stub(api, 'createPanda').rejects(error);
+    mockCreatePanda.mockRejectedValueOnce(error);
 
     // Configuration et exécution de la saga
 
@@ -157,6 +172,7 @@ describe('createPanda', () => {
       dispatch: (a: Action) => dispatched.push(a),
       getState: () => state,
     };
+
     // FIXME
     // @ts-ignore
     await runSaga(sagaConfig, createPanda, api, action);
@@ -167,6 +183,6 @@ describe('createPanda', () => {
 
     // Contrôle des appels d'API
 
-    expect(apiStub.calledOnce).toBeTruthy();
+    expect(mockCreatePanda).toHaveBeenCalledTimes(1);
   });
 });
