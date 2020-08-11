@@ -8,6 +8,7 @@
     "json-server": "./node_modules/.bin/json-server --watch ./json-server/db.json --port 3004 --id key",
     "lint": "eslint ./src/**/*.ts[x]",
     "test": "react-scripts test --watchAll=false",
+    "test:coverage": "react-scripts test --watchAll=false --coverage",
     "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
@@ -71,6 +72,21 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text",
+      "text-summary",
+      "lcov"
     ]
   }
 }
