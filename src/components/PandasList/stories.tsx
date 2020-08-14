@@ -5,6 +5,7 @@ import pandas from '../../pandas';
 
 export default {
   title: 'PandasList',
+  component: PandasList,
 };
 
 export const withPandas = () => {

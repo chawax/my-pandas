@@ -5,6 +5,7 @@ import { Panda } from '../../types';
 
 export default {
   title: 'PandaDetails',
+  component: PandaDetails,
 };
 
 export const sansCentresInteret = () => {

@@ -1,15 +1,16 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import CreatePandaFormik from '.';
+import CreatePandaWithFormik from '.';
 
 export default {
-  title: 'CreatePandaWithFormik',
+  title: 'Forms/CreatePandaWithFormik',
+  component: CreatePandaWithFormik,
 };
 
-export const creationForm = () => {
+export const noInitialValues = () => {
   return (
     <div style={{ padding: 20 }}>
-      <CreatePandaFormik onSubmit={action('on submit')} onCancel={action('on cancel')} />
+      <CreatePandaWithFormik onSubmit={action('on submit')} onCancel={action('on cancel')} />
     </div>
   );
 };

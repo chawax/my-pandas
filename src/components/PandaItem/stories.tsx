@@ -4,6 +4,7 @@ import PandaItem from '.';
 
 export default {
   title: 'PandaItem',
+  component: PandaItem,
 };
 
 export const sansCentresInteret = () => (

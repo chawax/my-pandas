@@ -5,6 +5,7 @@ import FormikInput from '.';
 
 export default {
   title: 'Design System/FormikInput',
+  component: FormikInput,
   decorators: [withA11y],
 };
 
