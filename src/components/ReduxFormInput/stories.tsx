@@ -3,7 +3,7 @@ import { WrappedFieldInputProps, WrappedFieldMetaProps } from 'redux-form';
 import ReduxFormInput from '.';
 
 export default {
-  title: 'Design System|ReduxFormInput',
+  title: 'Design System/ReduxFormInput',
 };
 
 const defaultMeta: WrappedFieldMetaProps = {

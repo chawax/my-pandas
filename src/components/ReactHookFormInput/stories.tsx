@@ -2,7 +2,7 @@ import React from 'react';
 import ReactHookFormInput from '.';
 
 export default {
-  title: 'Design System|ReactHookFormInput',
+  title: 'Design System/ReactHookFormInput',
 };
 
 export const noInitialValue = () => {
