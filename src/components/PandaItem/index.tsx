@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 
-interface Props {
+export interface Props {
   name: string;
   interests?: string[];
   onPress(): void;
