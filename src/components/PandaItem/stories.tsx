@@ -12,15 +12,11 @@ export const sansCentresInteret = () => (
     <PandaItem name="Nom du panda" onPress={action('on press')} />
   </div>
 );
-sansCentresInteret.story = {
-  name: "Sans centres d'intérêt",
-};
+sansCentresInteret.storyName = "Sans centres d'intérêt";
 
 export const avecCentresInteret = () => (
   <div style={{ padding: 20 }}>
     <PandaItem name="Nom du panda" interests={['cinéma', 'sport']} onPress={action('on press')} />
   </div>
 );
-avecCentresInteret.story = {
-  name: "Avec centres d'intérêt",
-};
+avecCentresInteret.storyName = "Avec centres d'intérêt";

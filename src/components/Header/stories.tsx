@@ -8,6 +8,4 @@ export default {
 } as Meta;
 
 export const Francais = () => <Header />;
-Francais.story = {
-  name: 'Français par défaut',
-};
+Francais.storyName = 'Français par défaut';
