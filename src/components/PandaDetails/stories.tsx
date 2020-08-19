@@ -5,6 +5,7 @@ import { Panda } from '../../types';
 
 export default {
   title: 'PandaDetails',
+  component: PandaDetails,
 };
 
 export const sansCentresInteret = () => {
@@ -20,9 +21,7 @@ export const sansCentresInteret = () => {
     </div>
   );
 };
-sansCentresInteret.story = {
-  name: "Sans centres d'intérêt",
-};
+sansCentresInteret.storyName = "Sans centres d'intérêt";
 
 export const avecCentresInteret = () => {
   const panda = {
@@ -37,6 +36,4 @@ export const avecCentresInteret = () => {
     </div>
   );
 };
-avecCentresInteret.story = {
-  name: "Avec centres d'intérêt",
-};
+avecCentresInteret.storyName = "Avec centres d'intérêt";

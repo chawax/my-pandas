@@ -4,7 +4,8 @@ import React from 'react';
 import FormikInput from '.';
 
 export default {
-  title: 'Design System|FormikInput',
+  title: 'Design System/FormikInput',
+  component: FormikInput,
   decorators: [withA11y],
 };
 

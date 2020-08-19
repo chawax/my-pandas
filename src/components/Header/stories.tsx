@@ -1,11 +1,11 @@
+import { Meta } from '@storybook/react';
 import React from 'react';
 import Header from '.';
 
 export default {
   title: 'Header',
-};
+  component: Header,
+} as Meta;
 
-export const francais = () => <Header />;
-francais.story = {
-  name: 'Français par défaut',
-};
+export const Francais = () => <Header />;
+Francais.storyName = 'Français par défaut';

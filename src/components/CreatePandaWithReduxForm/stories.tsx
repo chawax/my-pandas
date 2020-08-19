@@ -3,10 +3,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, compose, createStore, Middleware } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import CreatePandaForm from '.';
+import CreatePandaWithReduxForm from '.';
 
 export default {
-  title: 'CreatePandaWithReduxForm',
+  title: 'Forms/CreatePandaWithReduxForm',
+  component: CreatePandaWithReduxForm,
 };
 
 const buildFormDecoratorStore = () => {
@@ -24,11 +25,11 @@ const FormDecorator = (props: { children: JSX.Element[] | JSX.Element }) => {
   return <Provider store={formDecoratorStore}>{props.children}</Provider>;
 };
 
-export const creationForm = () => {
+export const noInitialValues = () => {
   return (
     <FormDecorator>
       <div style={{ padding: 20 }}>
-        <CreatePandaForm onSubmit={action('on submit')} onCancel={action('on cancel')} />
+        <CreatePandaWithReduxForm onSubmit={action('on submit')} onCancel={action('on cancel')} />
       </div>
     </FormDecorator>
   );

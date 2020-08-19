@@ -3,7 +3,8 @@ import React from 'react';
 import CreatePandaWithReactHookForm from '.';
 
 export default {
-  title: 'CreatePandaWithReactHookForm',
+  title: 'Forms/CreatePandaWithReactHookForm',
+  component: CreatePandaWithReactHookForm,
 };
 
 export const noInitialValues = () => {
