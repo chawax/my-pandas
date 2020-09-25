@@ -16,6 +16,7 @@ Elle permet de démontrer :
 - La gestion de la navigation avec React Router DOM
 - L'utilisation de Storybook pour mettre au point des composants
 - L'écriture de tests unitaires
+- L'utilisation de Stu
 
 Ce projet a été démarré avec [Create React App](https://github.com/facebook/create-react-app).
 
@@ -37,6 +38,7 @@ Principaux outils et librairies :
 - [React-i18next](https://react.i18next.com/) - Implémentation React de la librairie d'internationalisation i18next
 - [Axios](https://github.com/axios/axios) - Client HTTP
 - [Storybook](https://storybook.js.org/) - Outil de mise au point des composants
+- [Styled Component](https://styled-components.com/) - Librairie CSS in JS
 
 Pour les versions des différents outils et librairies consulter les fichiers `package.json` des différents packages.
 
