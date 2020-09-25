@@ -16,7 +16,7 @@ Elle permet de démontrer :
 - La gestion de la navigation avec React Router DOM
 - L'utilisation de Storybook pour mettre au point des composants
 - L'écriture de tests unitaires
-- L'utilisation de Stu
+- L'utilisation de Styled Components pour définir le style des composants
 
 Ce projet a été démarré avec [Create React App](https://github.com/facebook/create-react-app).
 
