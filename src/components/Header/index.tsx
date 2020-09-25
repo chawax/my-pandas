@@ -12,7 +12,7 @@ interface TitleProps {
 const Title = styled.h1<TitleProps>`
   font-size: 1.5em;
   text-align: center;
-  color: ${(props) => (props.primary ? 'blue' : 'red')};
+  color: ${(props) => (props.primary ? props.theme.primary : props.theme.secondary)};
 `;
 
 const Header = () => {
