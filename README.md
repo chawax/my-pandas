@@ -39,6 +39,7 @@ Principaux outils et librairies :
 - [Axios](https://github.com/axios/axios) - Client HTTP
 - [Storybook](https://storybook.js.org/) - Outil de mise au point des composants
 - [Styled Component](https://styled-components.com/) - Librairie CSS in JS
+- [React Testing Library](https://testing-library.com/) - Librairie pour écrire des tests d'intégration de composants
 
 Pour les versions des différents outils et librairies consulter les fichiers `package.json` des différents packages.
 
