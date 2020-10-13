@@ -16,7 +16,7 @@ const usePandas = () => {
   // Le hook useEffect permet
   useEffect(() => {
     dispatch(pandasSlice.actions.loadPandasRequest());
-  }, []);
+  }, [dispatch]);
 
   const pandas: Panda[] = useSelector(getPandas);
   const fetching: boolean = useSelector(isFetching);

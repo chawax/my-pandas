@@ -11,7 +11,7 @@ export interface State {
 
 // State initial
 
-const initialState: State = {
+export const initialState: State = {
   data: [],
   fetching: false,
   error: undefined,
