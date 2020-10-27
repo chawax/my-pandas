@@ -23,7 +23,7 @@ const usePanda = (id: string): Panda | undefined => {
 
 const PandaDetailsPage = () => {
   const history: History = useHistory();
-  const { id } = useParams(); // Récupération du paramètre `id` dans le path
+  const { id } = useParams<{ id: string }>(); // Récupération du paramètre `id` dans le path
 
   const panda = usePanda(id!); // Le ! permet de dire à Typescript qu'on sait ce qu'on fait, cette valeur ne sera jamais nulle !
 
