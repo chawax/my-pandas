@@ -19,6 +19,7 @@ const createPanda = (panda: Panda): Promise<Panda> => {
   });
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   loadPandas,
   createPanda,
