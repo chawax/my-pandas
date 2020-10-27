@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { Meta } from '@storybook/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, compose, createStore, Middleware } from 'redux';
@@ -8,7 +9,7 @@ import CreatePandaWithReduxForm from '.';
 export default {
   title: 'Forms/CreatePandaWithReduxForm',
   component: CreatePandaWithReduxForm,
-};
+} as Meta;
 
 const buildFormDecoratorStore = () => {
   const appReducer = combineReducers({

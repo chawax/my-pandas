@@ -1,10 +1,11 @@
+import { Meta } from '@storybook/react';
 import React from 'react';
 import ReactHookFormInput from '.';
 
 export default {
   title: 'Design System/ReactHookFormInput',
   component: ReactHookFormInput,
-};
+} as Meta;
 
 export const noInitialValue = () => {
   return (

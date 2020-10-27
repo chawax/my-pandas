@@ -1,11 +1,12 @@
 import { action } from '@storybook/addon-actions';
+import { Meta } from '@storybook/react';
 import React from 'react';
 import PandaItem from '.';
 
 export default {
   title: 'PandaItem',
   component: PandaItem,
-};
+} as Meta;
 
 export const sansCentresInteret = () => (
   <div style={{ padding: 20 }}>
