@@ -1,11 +1,12 @@
 import { action } from '@storybook/addon-actions';
+import { Meta } from '@storybook/react';
 import React from 'react';
 import CreatePandaWithReactHookForm from '.';
 
 export default {
   title: 'Forms/CreatePandaWithReactHookForm',
   component: CreatePandaWithReactHookForm,
-};
+} as Meta;
 
 export const noInitialValues = () => {
   return (

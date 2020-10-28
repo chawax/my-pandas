@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { Meta } from '@storybook/react';
 import React from 'react';
 import PandaDetails from '.';
 import { Panda } from '../../types';
@@ -6,7 +7,7 @@ import { Panda } from '../../types';
 export default {
   title: 'PandaDetails',
   component: PandaDetails,
-};
+} as Meta;
 
 export const sansCentresInteret = () => {
   const panda: Panda = {

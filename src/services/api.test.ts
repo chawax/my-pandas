@@ -21,6 +21,7 @@ describe('loadPandas', () => {
       await api.loadPandas();
       fail();
     } catch (error) {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(error).toEqual(rejected);
     }
   });

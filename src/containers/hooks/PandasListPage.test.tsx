@@ -28,7 +28,7 @@ describe('PandasListPage', () => {
 
       // We should display a loading component
 
-      const loadingElement = await getByText(/Loading.../i);
+      const loadingElement = getByText(/Loading.../i);
       expect(loadingElement).toBeInTheDocument();
 
       // We wait for API to have been called
@@ -70,7 +70,7 @@ describe('PandasListPage', () => {
 
       // We should display a loading component
 
-      const loadingElement = await getByText(/Loading.../i);
+      const loadingElement = getByText(/Loading.../i);
       expect(loadingElement).toBeInTheDocument();
 
       // After API was called we should display a list of 10 pandas

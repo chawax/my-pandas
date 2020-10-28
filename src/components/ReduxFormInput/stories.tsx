@@ -1,3 +1,4 @@
+import { Meta } from '@storybook/react';
 import React from 'react';
 import { WrappedFieldInputProps, WrappedFieldMetaProps } from 'redux-form';
 import ReduxFormInput from '.';
@@ -5,7 +6,7 @@ import ReduxFormInput from '.';
 export default {
   title: 'Design System/ReduxFormInput',
   component: ReduxFormInput,
-};
+} as Meta;
 
 const defaultMeta: WrappedFieldMetaProps = {
   active: true,

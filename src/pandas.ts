@@ -1,4 +1,4 @@
-export default [
+const pandas = [
   {
     key: '1',
     name: 'Yuan Meng',
@@ -60,3 +60,5 @@ export default [
     interests: ['bambou', 'jardinage'],
   },
 ];
+
+export default pandas;
