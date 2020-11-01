@@ -8,6 +8,8 @@ import { server } from '../../../mocks/server';
 import { store } from '../../../redux';
 import PandasListPage from './PandasListPage';
 
+import '../../../i18n';
+
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
