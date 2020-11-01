@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, cleanup, screen } from '@testing-library/react';
-import PandaItem from '.';
+import PandaItem from './PandaItem';
 
 afterEach(cleanup);
 
