@@ -51,11 +51,18 @@ describe('CreatePandaWithReactHookFormPage', () => {
       const cancelButton = getByRole('button', { name: 'Annuler' });
       expect(cancelButton).toBeInTheDocument();
 
-      // On simule une saisie dans les champs et une validation du formulaire
+      // On simule une saisie dans les champs, la tabulation pour passer d'un champ
+      // à un autre et une validation du formulaire
 
       await waitFor(() => userEvent.type(nameInput, 'Olivier'));
+      userEvent.tab();
+      expect(interestInput).toHaveFocus();
       await waitFor(() => userEvent.type(interestInput, 'football,photo'));
+      userEvent.tab();
+      expect(imageInput).toHaveFocus();
       await waitFor(() => userEvent.type(imageInput, 'photo.jpg'));
+      userEvent.tab();
+      expect(validateButton).toHaveFocus();
       await waitFor(() => userEvent.click(validateButton));
 
       //screen.debug();
