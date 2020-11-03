@@ -64,10 +64,12 @@ const CreatePandaForm = (props: Props) => {
             placeholder={t('pandaForm.image.placeholder')}
             required
           />
-          <Button color="primary" style={{ marginRight: 10 }}>
+          <Button color="primary" style={{ marginRight: 10 }} type="submit">
             {t('common.submit')}
           </Button>
-          <Button onClick={onCancel}>{t('common.cancel')}</Button>
+          <Button onClick={onCancel} type="button">
+            {t('common.cancel')}
+          </Button>
         </form>
       )}
     </Formik>
