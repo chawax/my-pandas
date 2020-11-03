@@ -15,6 +15,10 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('PandasListPage', () => {
   describe('with Axios mock', () => {
+    afterEach(() => {
+      mockedAxios.get.mockReset();
+    });
+
     it('should render a loading component then a list of pandas', async () => {
       // Mock API
 
@@ -48,9 +52,37 @@ describe('PandasListPage', () => {
       expect(yuanMeng).toBeInTheDocument();
       expect(loadingElement).not.toBeInTheDocument();
     });
+
+    it('should display a retry button', async () => {
+      // Mock API
+
+      mockedAxios.get.mockRejectedValue({ error: 'Network error' });
+
+      // Render the component
+
+      const { getByText, getByRole } = render(
+        <Provider store={store}>
+          <PandasListPage />
+        </Provider>,
+      );
+
+      // We should display a loading component
+
+      const loadingElement = getByText(/Loading.../i);
+      expect(loadingElement).toBeInTheDocument();
+
+      // We wait for API to have been called
+
+      await waitFor(() => expect(mockedAxios.get).toHaveBeenCalledTimes(1));
+
+      // We should display a retry button
+
+      const retryButton = getByRole('button', { name: 'Réessayer' });
+      expect(retryButton).toBeInTheDocument();
+    });
   });
 
-  describe('with Mock Service Worker', () => {
+  xdescribe('with Mock Service Worker', () => {
     // Establish API mocking before all tests.
     beforeAll(() => server.listen());
 
