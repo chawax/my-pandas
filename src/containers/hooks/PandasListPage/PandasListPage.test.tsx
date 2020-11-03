@@ -78,6 +78,7 @@ describe('PandasListPage', () => {
       // After API was called we should display a list of 10 pandas
 
       await waitForElementToBeRemoved(() => getByText(/Loading.../));
+      expect(loadingElement).not.toBeInTheDocument();
 
       const listItems = await findAllByRole(container, 'listitem');
       expect(listItems.length).toBe(10);
@@ -86,7 +87,6 @@ describe('PandasListPage', () => {
 
       const yuanMeng = getByRole('heading', { name: 'Yuan Meng' });
       expect(yuanMeng).toBeInTheDocument();
-      expect(loadingElement).not.toBeInTheDocument();
     });
   });
 });
