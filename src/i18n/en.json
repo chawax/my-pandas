@@ -19,8 +19,12 @@
         "text": "This version uses HOC components such as connect, withRouter, reduxForm, etc..."
       },
       "hooks": {
-        "heading": "Version width hooks",
+        "heading": "Version with hooks",
         "text": "This version uses hooks to connect with Redux, React Router DOM, etc...."
+      },
+      "rq": {
+        "heading": "Version with React Query",
+        "text": "This version uses hooks and React Query"
       }
     },
     "pandaForm": {

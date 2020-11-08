@@ -1,0 +1,99 @@
+import { History } from 'history';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useQuery } from 'react-query';
+import { useHistory } from 'react-router-dom';
+import { Alert, Button, Spinner } from 'reactstrap';
+import PandasList from '../../../components/PandasList';
+import api from '../../../services/api';
+
+// Hook personnalisé pour charger la liste des pandas et récupérer
+// les flags depuis le store Redux
+const usePandas = () => {
+  return useQuery('pandas', () => api.loadPandas());
+  /*
+  const dispatch = useDispatch();
+
+  // Le hook useEffect permet
+  useEffect(() => {
+    dispatch(pandasSlice.actions.loadPandasRequest());
+  }, [dispatch]);
+
+  const pandas: Panda[] = useSelector(getPandas);
+  const fetching: boolean = useSelector(isFetching);
+  const error: Error | undefined = useSelector(getError);
+
+  return {
+    pandas,
+    fetching,
+    error,
+  };
+  */
+};
+
+type ErrorCardsProps = {
+  error: any;
+  onRetry(): void;
+};
+
+const ErrorCard = ({ error, onRetry }: ErrorCardsProps) => {
+  const { t } = useTranslation();
+  return (
+    <div>
+      <Alert color="danger">{error!.message}</Alert>
+      <Button color="secondary" onClick={onRetry}>
+        {t('common.retry')}
+      </Button>
+    </div>
+  );
+};
+
+const PandasListPage = () => {
+  const { data, isLoading, error } = usePandas();
+  //const dispatch = useDispatch();
+  const history: History = useHistory();
+  const { t } = useTranslation();
+
+  const handleSelectPanda = (key: string) => {
+    //history.push('/hooks/pandas/' + key);
+  };
+
+  const handleNewPandaWithFormik = () => {
+    //history.push('/hooks/createPandaWithFormik');
+  };
+
+  const handleNewPandaWithReactHookForm = () => {
+    //history.push('/hooks/createPandaWithReactHookForm');
+  };
+
+  const handleHome = () => {
+    history.replace('/');
+  };
+
+  const handleRetry = () => {
+    //dispatch(pandasSlice.actions.loadPandasRequest());
+  };
+
+  return (
+    <div style={{ padding: 20 }}>
+      {isLoading && <Spinner color="primary" />}
+      {error && <ErrorCard error={error} onRetry={handleRetry} />}
+      {data && (
+        <>
+          <PandasList pandas={data} onSelectPanda={handleSelectPanda} />
+          <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithFormik}>
+            {t('pandasList.addWithFormik')}
+          </Button>
+          <Button color="primary" style={{ marginTop: 10, marginRight: 10 }} onClick={handleNewPandaWithReactHookForm}>
+            {t('pandasList.addWithReactHookForm')}
+          </Button>
+          <Button color="secondary" style={{ marginTop: 10 }} onClick={handleHome}>
+            {t('common.home')}
+          </Button>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default PandasListPage;
