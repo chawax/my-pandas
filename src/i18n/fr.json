@@ -21,6 +21,10 @@
       "hooks": {
         "heading": "Version avec hooks",
         "text": "Cette version utilise les hooks pour se connecter à Redux, à React Router DOM, etc...."
+      },
+      "rq": {
+        "heading": "Version avec React Query",
+        "text": "Cette version utilise les hooks et React Query"
       }
     },
     "pandaForm": {

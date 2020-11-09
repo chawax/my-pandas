@@ -19,6 +19,12 @@ const Home = () => {
         </ListGroupItemHeading>
         <ListGroupItemText>{t('home.hooks.text')}</ListGroupItemText>
       </ListGroupItem>
+      <ListGroupItem>
+        <ListGroupItemHeading>
+          <Link to="/rq">{t('home.rq.heading')}</Link>
+        </ListGroupItemHeading>
+        <ListGroupItemText>{t('home.rq.text')}</ListGroupItemText>
+      </ListGroupItem>
     </ListGroup>
   );
 };

@@ -16,6 +16,8 @@ import CreatePandaWithHooksAndFormikPage from '../hooks/CreatePandaWithFormikPag
 import CreatePandaWithHooksAndReactHookFormPage from '../hooks/CreatePandaWithReactHookFormPage';
 import PandaDetailsWithHooksPage from '../hooks/PandaDetailsPage';
 import PandasListWithHooksPage from '../hooks/PandasListPage';
+import ReactQueryApp from '../rq/App';
+import PandasListWithReactQueryPage from '../rq/PandasListPage';
 
 const App: React.FC = () => {
   return (
@@ -34,6 +36,8 @@ const App: React.FC = () => {
           <Route path="/hooks/pandas/:id" component={PandaDetailsWithHooksPage} />
           <Route path="/hooks/createPandaWithFormik" component={CreatePandaWithHooksAndFormikPage} />
           <Route path="/hooks/createPandaWithReactHookForm" component={CreatePandaWithHooksAndReactHookFormPage} />
+          <Route path="/rq" exact component={ReactQueryApp} />
+          <Route path="/rq/pandas" exact component={PandasListWithReactQueryPage} />
         </ConnectedRouter>
       </Provider>
     </ThemeProvider>
