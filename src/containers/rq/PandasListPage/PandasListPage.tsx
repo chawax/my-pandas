@@ -7,28 +7,8 @@ import { Alert, Button, Spinner } from 'reactstrap';
 import PandasList from '../../../components/PandasList';
 import api from '../../../services/api';
 
-// Hook personnalisé pour charger la liste des pandas et récupérer
-// les flags depuis le store Redux
 const usePandas = () => {
   return useQuery('pandas', () => api.loadPandas());
-  /*
-  const dispatch = useDispatch();
-
-  // Le hook useEffect permet
-  useEffect(() => {
-    dispatch(pandasSlice.actions.loadPandasRequest());
-  }, [dispatch]);
-
-  const pandas: Panda[] = useSelector(getPandas);
-  const fetching: boolean = useSelector(isFetching);
-  const error: Error | undefined = useSelector(getError);
-
-  return {
-    pandas,
-    fetching,
-    error,
-  };
-  */
 };
 
 type ErrorCardsProps = {
@@ -49,7 +29,7 @@ const ErrorCard = ({ error, onRetry }: ErrorCardsProps) => {
 };
 
 const PandasListPage = () => {
-  const { data, isLoading, error } = usePandas();
+  const { data, error, isLoading, isError } = usePandas();
   //const dispatch = useDispatch();
   const history: History = useHistory();
   const { t } = useTranslation();
@@ -77,7 +57,7 @@ const PandasListPage = () => {
   return (
     <div style={{ padding: 20 }}>
       {isLoading && <Spinner color="primary" />}
-      {error && <ErrorCard error={error} onRetry={handleRetry} />}
+      {isError && <ErrorCard error={error} onRetry={handleRetry} />}
       {data && (
         <>
           <PandasList pandas={data} onSelectPanda={handleSelectPanda} />
