@@ -29,7 +29,7 @@ const ErrorCard = ({ error, onRetry }: ErrorCardsProps) => {
 };
 
 const PandasListPage = () => {
-  const { data, error, isLoading, isError } = usePandas();
+  const { data, error, isLoading, isError, refetch } = usePandas();
   //const dispatch = useDispatch();
   const history: History = useHistory();
   const { t } = useTranslation();
@@ -50,14 +50,10 @@ const PandasListPage = () => {
     history.replace('/');
   };
 
-  const handleRetry = () => {
-    //dispatch(pandasSlice.actions.loadPandasRequest());
-  };
-
   return (
     <div style={{ padding: 20 }}>
       {isLoading && <Spinner color="primary" />}
-      {isError && <ErrorCard error={error} onRetry={handleRetry} />}
+      {isError && <ErrorCard error={error} onRetry={refetch} />}
       {data && (
         <>
           <PandasList pandas={data} onSelectPanda={handleSelectPanda} />
